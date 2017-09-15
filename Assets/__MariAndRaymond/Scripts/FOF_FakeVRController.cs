@@ -76,24 +76,32 @@ public class FOF_FakeVRController : MonoBehaviour
         Vector3 endPos = _ray.direction * _distance;
         Debug.DrawRay(origin, endPos, Color.red);
 
+        //if (Physics.SphereCast(origin, _castRadius, _ray.direction, out _hit, _distance))
+        if (Physics.Raycast(origin, _ray.direction, out _hit, _distance))
+        {
+            //Debug.Log(_hit.distance);
+            _distance = Mathf.Min(_distance, _hit.distance);
+        }
 
         switch (m_state)
         {
             case EState.holding:
-                if (Input.GetMouseButtonUp(0))
-                {
-                    break;
-                }
-
                 Debug.Assert(_holdingItem != null);
-                Rigidbody itemRBody = _holdingItem.GetComponent<Rigidbody>();
-                Debug.Assert(itemRBody != null);
-                itemRBody.useGravity = false;
-                Collider itemCollider = _holdingItem.GetComponent<Collider>();
-                Debug.Assert(itemCollider != null);
-                itemCollider.enabled = false;
                 _holdingItem.transform.position = _holdingPlace.position;
                 _holdingItem.transform.rotation = _holdingPlace.rotation;
+
+                if (Input.GetMouseButtonUp(0))
+                {
+                    if (_holdingItem is FOF_GlassesBehavior)
+                    {
+                        _distance = distanceMax;
+                    }
+
+                    _holdingItem.BeDropped();
+                    State = EState.normal;
+                    _holdingItem = null;
+                    break;
+                }
                 break;
 
             case EState.normal:
@@ -102,13 +110,6 @@ public class FOF_FakeVRController : MonoBehaviour
 
             default:
                 break;
-        }
-
-        //if (Physics.SphereCast(origin, _castRadius, _ray.direction, out _hit, _distance))
-        if (Physics.Raycast(origin, _ray.direction, out _hit, _distance))
-        {
-            //Debug.Log(_hit.distance);
-            _distance = Mathf.Min(_distance, _hit.distance);
         }
 
         transform.position = origin + endPos;

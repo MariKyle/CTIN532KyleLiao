@@ -464,6 +464,24 @@ MeshCollider:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a69511a1d0218694094b96929693635e, type: 3}
   m_PrefabInternal: {fileID: 330536138}
+--- !u!1 &87581351 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: a69511a1d0218694094b96929693635e, type: 3}
+  m_PrefabInternal: {fileID: 330536138}
+--- !u!64 &87581352
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 87581351}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: a69511a1d0218694094b96929693635e, type: 3}
 --- !u!1001 &204333694
 Prefab:
   m_ObjectHideFlags: 0
@@ -573,7 +591,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b47bd20fc2b04541a06e75f4a6bca4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dropSFX: {fileID: 0}
   _vrController: {fileID: 0}
+  _originPlace: {fileID: 0}
+  _wearPlace: {fileID: 0}
+  _minDistanceToWear: 0.5
+  m_wornOnHead: 0
+  _wearSFX: {fileID: 0}
 --- !u!65 &204333698
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1055,6 +1079,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.75, y: 0.15, z: 1.28}
   m_Center: {x: -0.35, y: 0.75, z: 0.51}
+--- !u!1 &300170431 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: a69511a1d0218694094b96929693635e, type: 3}
+  m_PrefabInternal: {fileID: 894564142}
+--- !u!64 &300170432
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 300170431}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: a69511a1d0218694094b96929693635e, type: 3}
 --- !u!1001 &330536138
 Prefab:
   m_ObjectHideFlags: 0
@@ -2192,6 +2234,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &552333514 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: a69511a1d0218694094b96929693635e, type: 3}
+  m_PrefabInternal: {fileID: 1089886060}
+--- !u!64 &552333515
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 552333514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: a69511a1d0218694094b96929693635e, type: 3}
 --- !u!1 &578951086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,7 +2348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591205478}
   m_Layer: 0
-  m_Name: Glasses Wear Pos
+  m_Name: Glasses Wear Place
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2542,6 +2602,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a69511a1d0218694094b96929693635e, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &806077456 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: a69511a1d0218694094b96929693635e, type: 3}
+  m_PrefabInternal: {fileID: 1500662850}
+--- !u!64 &806077457
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806077456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: a69511a1d0218694094b96929693635e, type: 3}
 --- !u!4 &811295515 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a69511a1d0218694094b96929693635e, type: 3}
@@ -3667,7 +3745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282492956}
   m_Layer: 0
-  m_Name: Glasses_Origin
+  m_Name: Glasses Origin Place
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4432,6 +4510,24 @@ Transform:
   m_Father: {fileID: 521198143}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1550386208 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: a69511a1d0218694094b96929693635e, type: 3}
+  m_PrefabInternal: {fileID: 1957408823}
+--- !u!64 &1550386209
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1550386208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: a69511a1d0218694094b96929693635e, type: 3}
 --- !u!1 &1554734365
 GameObject:
   m_ObjectHideFlags: 0
@@ -4711,6 +4807,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.19873425, y: 0.20811859, z: 0.06868458}
   m_Center: {x: 0.00020585582, y: 0.0118744215, z: 0.035234164}
+--- !u!82 &1616718925
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1616718923}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!4 &1616718926 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 7762bbc8a1b5fb84396eb2fe506fce51, type: 3}
@@ -4726,7 +4902,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b47bd20fc2b04541a06e75f4a6bca4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dropSFX: {fileID: 8300000, guid: e47dab63eaec88848b421c8771504e55, type: 3}
   _vrController: {fileID: 0}
+  _originPlace: {fileID: 1282492956}
+  _wearPlace: {fileID: 591205478}
+  _minDistanceToWear: 0.5
+  m_wornOnHead: 0
+  _wearSFX: {fileID: 8300000, guid: e94b0613c4d7e84469ea5170d42f20aa, type: 3}
 --- !u!54 &1616718929
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5231,7 +5413,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1765826019}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10, y: 0.5, z: 10}
@@ -5250,7 +5432,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1765826019}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5428,6 +5610,24 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 15335bc8ae5f4e043a480699de311016, type: 3}
+--- !u!1 &1811746132 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: a69511a1d0218694094b96929693635e, type: 3}
+  m_PrefabInternal: {fileID: 735764695}
+--- !u!64 &1811746133
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811746132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: a69511a1d0218694094b96929693635e, type: 3}
 --- !u!1 &1818113968
 GameObject:
   m_ObjectHideFlags: 0

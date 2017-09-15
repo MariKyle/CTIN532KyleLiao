@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider))]
 public class FOF_PickupBehavior : MonoBehaviour
 {
     public enum EState
@@ -10,17 +12,40 @@ public class FOF_PickupBehavior : MonoBehaviour
         waiting,
         pickuped,
     }
-    private EState m_state;
+    protected EState m_state;
     public EState State
     {
         get { return m_state; }
-        set { m_state = value; }
+        set
+        {
+            switch (value)
+            {
+                case EState.pickuped:
+                    m_rigidBody.useGravity = false;
+                    m_collider.enabled = false;
+                    break;
+
+                case EState.normal:
+                    m_rigidBody.useGravity = true;
+                    m_collider.enabled = true;
+                    break;
+            }
+
+            m_state = value;
+        }
     }
 
     [SerializeField]
-    private FOF_FakeVRController _vrController;
+    protected AudioClip _dropSFX;
+    protected AudioSource _audioSrc;
 
-    private void Awake()
+    [SerializeField]
+    protected FOF_FakeVRController _vrController;
+
+    protected Rigidbody m_rigidBody;
+    protected Collider m_collider;
+
+    protected virtual void Awake()
     {
         if (_vrController == null)
         {
@@ -28,10 +53,20 @@ public class FOF_PickupBehavior : MonoBehaviour
             Debug.Assert(vrControllerObj != null);
             _vrController = vrControllerObj.GetComponent<FOF_FakeVRController>();
             Debug.Assert(_vrController != null);
+
+            m_rigidBody = GetComponent<Rigidbody>();
+            Debug.Assert(m_rigidBody != null);
+            m_collider = GetComponent<Collider>();
+            Debug.Assert(m_collider != null);
+
+            _audioSrc = GetComponent<AudioSource>();
+            Debug.Assert(_audioSrc != null);
+            _audioSrc.playOnAwake = false;
+            _audioSrc.loop = false;
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (m_state == EState.waiting)
         {
@@ -39,12 +74,21 @@ public class FOF_PickupBehavior : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 _vrController.PickUp(this);
-                m_state = EState.pickuped;
+                State = EState.pickuped;
             }
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnCollisionEnter(Collision other)
+    {
+        if (_dropSFX != null && !_audioSrc.isPlaying)
+        {
+            _audioSrc.clip = _dropSFX;
+            _audioSrc.Play();
+        }
+    }
+
+    protected virtual void OnTriggerEnter(Collider other)
     {
         //Debug.LogError("OnTriggerEnter");
         // Check if touched by the VR controller.
@@ -59,7 +103,7 @@ public class FOF_PickupBehavior : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         // Check if touched by the VR controller.
         FOF_FakeVRController controller = other.GetComponent<FOF_FakeVRController>();
@@ -71,6 +115,11 @@ public class FOF_PickupBehavior : MonoBehaviour
                 m_state = EState.normal;
             }
         }
+    }
+
+    public virtual void BeDropped()
+    {
+        State = EState.normal;
     }
 
 }
