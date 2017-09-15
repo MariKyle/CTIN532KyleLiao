@@ -34,6 +34,13 @@ public class SmoothLookAround : MonoBehaviour
 
     void Update()
     {
+        if (m_useMouse && 
+            (Input.GetMouseButton(0) ||
+            Input.GetMouseButton(1) ))
+        {
+            return;
+        }
+
         if (axes == RotationAxes.MouseXAndY)
         {
             rotAverageY = 0f;
