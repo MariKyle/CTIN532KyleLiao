@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: a95ae5950b8fe2c4d9edbb2aca4c0457
+timeCreated: 1506096448
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: l_Frame tie
+    100004: l_Frame tie01
+    100006: l_Hinge
+    100008: l_Nose peice
+    100010: l_Nose peice plastic
+    100012: Lense
+    100014: Omni01
+    100016: Omni02
+    100018: r_Arm
+    100020: r_Arm01
+    100022: r_Hinge
+    100024: r_Nose peice
+    100026: r_Nose peice plastic
+    100028: Rims
+    100030: Screw_1
+    100032: Screw_2
+    100034: Screw_3
+    100036: Screw_4
+    100038: Screw_5
+    100040: Screw_6
+    400000: //RootNode
+    400002: l_Frame tie
+    400004: l_Frame tie01
+    400006: l_Hinge
+    400008: l_Nose peice
+    400010: l_Nose peice plastic
+    400012: Lense
+    400014: Omni01
+    400016: Omni02
+    400018: r_Arm
+    400020: r_Arm01
+    400022: r_Hinge
+    400024: r_Nose peice
+    400026: r_Nose peice plastic
+    400028: Rims
+    400030: Screw_1
+    400032: Screw_2
+    400034: Screw_3
+    400036: Screw_4
+    400038: Screw_5
+    400040: Screw_6
+    2300000: l_Frame tie
+    2300002: l_Frame tie01
+    2300004: l_Hinge
+    2300006: l_Nose peice
+    2300008: l_Nose peice plastic
+    2300010: Lense
+    2300012: r_Arm
+    2300014: r_Arm01
+    2300016: r_Hinge
+    2300018: r_Nose peice
+    2300020: r_Nose peice plastic
+    2300022: Rims
+    2300024: Screw_1
+    2300026: Screw_2
+    2300028: Screw_3
+    2300030: Screw_4
+    2300032: Screw_5
+    2300034: Screw_6
+    3300000: l_Frame tie
+    3300002: l_Frame tie01
+    3300004: l_Hinge
+    3300006: l_Nose peice
+    3300008: l_Nose peice plastic
+    3300010: Lense
+    3300012: r_Arm
+    3300014: r_Arm01
+    3300016: r_Hinge
+    3300018: r_Nose peice
+    3300020: r_Nose peice plastic
+    3300022: Rims
+    3300024: Screw_1
+    3300026: Screw_2
+    3300028: Screw_3
+    3300030: Screw_4
+    3300032: Screw_5
+    3300034: Screw_6
+    4300000: Screw_2
+    4300002: r_Hinge
+    4300004: l_Hinge
+    4300006: Screw_1
+    4300008: r_Arm
+    4300010: Rims
+    4300012: Lense
+    4300014: r_Arm01
+    4300016: r_Nose peice
+    4300018: Screw_4
+    4300020: l_Nose peice
+    4300022: Screw_3
+    4300024: r_Nose peice plastic
+    4300026: l_Nose peice plastic
+    4300028: l_Frame tie
+    4300030: Screw_5
+    4300032: l_Frame tie01
+    4300034: Screw_6
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

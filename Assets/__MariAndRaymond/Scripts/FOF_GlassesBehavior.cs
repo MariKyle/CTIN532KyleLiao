@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class FOF_GlassesBehavior : FOF_PickupBehavior
 {
@@ -16,8 +17,11 @@ public class FOF_GlassesBehavior : FOF_PickupBehavior
     private bool m_wornOnHead;
 
     [SerializeField]
+    MeshRenderer m_meshRenderer;
+    [SerializeField]
+    RenderTexture m_glassesPerspectiveRTexture;
+    [SerializeField]
     protected AudioClip _wearSFX;
-
 
     protected override void Awake()
     {
@@ -73,6 +77,9 @@ public class FOF_GlassesBehavior : FOF_PickupBehavior
             //m_collider.enabled = false;
             m_rigidBody.useGravity = false;
             m_wornOnHead = true;
+
+            //Material mat = m_meshRenderer.material;
+            
 
             _audioSrc.clip = _wearSFX;
             _audioSrc.Play();
