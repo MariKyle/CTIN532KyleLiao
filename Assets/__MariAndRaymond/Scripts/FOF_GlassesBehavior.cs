@@ -5,8 +5,8 @@ using UnityEngine.Rendering;
 
 public class FOF_GlassesBehavior : FOF_PickupBehavior
 {
-    [SerializeField]
-    private Transform _originPlace;
+    //[SerializeField]
+    //private Transform _originPlace;
     [SerializeField]
     private Transform _wearPlace;
     [SerializeField]
@@ -28,7 +28,7 @@ public class FOF_GlassesBehavior : FOF_PickupBehavior
     {
         base.Awake();
 
-        Debug.Assert(_originPlace != null);
+        //Debug.Assert(_originPlace != null);
         Debug.Assert(_wearPlace != null);
 		if (_cameraPlace == null)
         	_cameraPlace = Camera.main.transform;
@@ -43,7 +43,6 @@ public class FOF_GlassesBehavior : FOF_PickupBehavior
         switch (m_state)
         {
             case EState.normal:
-            case EState.waiting:
                 if (m_wornOnHead)
                 {
                     transform.position = _wearPlace.position;
@@ -53,19 +52,6 @@ public class FOF_GlassesBehavior : FOF_PickupBehavior
 
             default:
                 break;
-        }
-    }
-
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-
-        FOF_FloorBehavior floor = other.GetComponent<FOF_FloorBehavior>();
-        if (floor != null)
-        {
-            // put the glasses at the origin place.
-            transform.position = _originPlace.position;
-            transform.rotation = _originPlace.rotation;
         }
     }
 
