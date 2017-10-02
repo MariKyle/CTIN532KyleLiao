@@ -8,3 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/__MariAndRaymond/Scenes/FeastOfFools_Scene1_Table.unity
     guid: a55f0a9ddd393fb47b2d06617ae79e43
+  - enabled: 1
+    path: Assets/__MariAndRaymond/Scenes/Title Sequence.unity
+    guid: 64936221c387a96489ffb24c3d1e3096
