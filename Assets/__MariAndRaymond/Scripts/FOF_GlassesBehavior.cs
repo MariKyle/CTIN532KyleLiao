@@ -11,6 +11,7 @@ public class FOF_GlassesBehavior : FOF_PickupBehavior
     private Transform _wearPlace;
     [SerializeField]
     private float _minDistanceToWear = 0.5f;
+	[SerializeField]
     private Transform _cameraPlace;
 
     [SerializeField]
@@ -29,7 +30,8 @@ public class FOF_GlassesBehavior : FOF_PickupBehavior
 
         Debug.Assert(_originPlace != null);
         Debug.Assert(_wearPlace != null);
-        _cameraPlace = Camera.main.transform;
+		if (_cameraPlace == null)
+        	_cameraPlace = Camera.main.transform;
 
         Debug.Assert(_wearSFX != null);
     }

@@ -5,8 +5,7 @@ using UnityEngine;
 public class FOF_GameManager : MonoBehaviour
 {
 
-	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
         Screen.SetResolution(1920, 1080, true);
 	}
