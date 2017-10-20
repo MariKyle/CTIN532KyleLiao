@@ -42,6 +42,6 @@ Material:
     - _Tweak: 0.65
     - _Width: 8.71
     m_Colors:
-    - _Color: {r: 0.7352941, g: 0.69248897, b: 0.51362455, a: 1}
+    - _Color: {r: 1, g: 0.97160244, b: 0.85294116, a: 1}
     - _DetailAnim: {r: 0.5, g: 1, b: 0, a: 0}
     - _DustAnim: {r: 0.3, g: 0.81, b: 0, a: 0}
