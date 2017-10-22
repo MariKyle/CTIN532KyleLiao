@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TeleportIgnore
   layers:
   - Default
   - TransparentFX
@@ -13,11 +14,11 @@ TagManager:
   - UI
   - 
   - 
-  - Glasses Perspective
-  - Red Wine Perspective
-  - Non Glasses Perspective
-  - Non Red Wine Perspective
-  - Excluded from light 01
+  - Floor
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
