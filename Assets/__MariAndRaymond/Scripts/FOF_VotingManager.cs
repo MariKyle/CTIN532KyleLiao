@@ -41,27 +41,39 @@ public class FOF_VotingManager : MonoBehaviour
         Round2Characters = new ArrayList();
 
         Debug.Assert(Champion != null);
-        //Champion.IntroduceVotingA();
-        NextCharacterToPropose();
+        Champion.IntroduceVotingA();
+        //NextCharacterToPropose();
     }
 
     protected void Update()
     {
-        if (m_status == EStatus.votingTutorialB)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Champion.IntroduceVotingB();
-            }
-        }
-        if (m_status == EStatus.voting)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                PlayerVote(true);
-            }
-        }
+        //if (m_status == EStatus.votingTutorialB)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //    {
+        //        Champion.IntroduceVotingB();
+        //    }
+        //}
+        //if (m_status == EStatus.voting)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //    {
+        //        PlayerVote(true);
+        //    }
+        //}
     }
+
+	public void HoldUpRightHand()
+	{
+		if (m_status == EStatus.votingTutorialB) 
+		{
+			Champion.IntroduceVotingB();
+		}
+		if (m_status == EStatus.voting)
+		{
+			PlayerVote(true);
+		}
+	}
 
     // Called by FOF_Champion
     public void VotingTutorialWait()

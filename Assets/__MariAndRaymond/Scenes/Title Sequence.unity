@@ -4759,7 +4759,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1388847831191694, guid: bd1b4e735d620c841ab1f2aaaf0ae91c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1415595404077054, guid: bd1b4e735d620c841ab1f2aaaf0ae91c, type: 2}
       propertyPath: m_IsActive
@@ -13004,7 +13004,7 @@ Canvas:
   m_GameObject: {fileID: 1354386294}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 2027452592}
   m_PlaneDistance: 10
   m_PixelPerfect: 1
@@ -16817,7 +16817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2031381570
 Transform:
   m_ObjectHideFlags: 0
