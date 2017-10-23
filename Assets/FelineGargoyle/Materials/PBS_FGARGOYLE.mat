@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: PBS_FGARGOYLE
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 85a8c7b0f3845fc4fa7cbdf41c6b138d, type: 3}
   m_ShaderKeywords: _EMISSION _NORMALMAP
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -77,7 +77,7 @@ Material:
     - _StencilComp: 3
     - _StencilOp: 0
     - _StencilReadMask: 255
-    - _StencilReferenceID: 2
+    - _StencilReferenceID: 3
     - _StencilWriteMask: 255
     - _UVSec: 0
     - _ZWrite: 1

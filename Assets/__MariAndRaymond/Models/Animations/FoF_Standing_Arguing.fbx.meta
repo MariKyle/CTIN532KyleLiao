@@ -257,7 +257,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: MakeProposal
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 3e8665d0d3151dc4d8eab52f74eb8d67,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
