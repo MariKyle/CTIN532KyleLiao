@@ -7879,7 +7879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &263870769
 AudioListener:
   m_ObjectHideFlags: 0
@@ -9781,6 +9781,10 @@ Prefab:
         type: 2}
       propertyPath: m_CullingMask.m_Bits
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1071492148918884, guid: bd1b4e735d620c841ab1f2aaaf0ae91c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd1b4e735d620c841ab1f2aaaf0ae91c, type: 2}
@@ -16793,6 +16797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e8665d0d3151dc4d8eab52f74eb8d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_myName: 3
   _traumaVersion: {fileID: 1043951707}
   proposalRound1Time: 0
   proposalRound2Time: 0
@@ -20997,7 +21002,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400058, guid: b0208117dd8e8ef4caa53c79e704f988, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 750501588}
-  m_LocalRotation: {x: -0.6561508, y: -0.5000827, z: -0.1315311, w: 0.54962075}
+  m_LocalRotation: {x: -0.6561509, y: -0.50008273, z: -0.13153112, w: 0.5496208}
   m_LocalPosition: {x: 0.0038600906, y: 0.020258421, z: 0.030833283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22781,7 +22786,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400058, guid: b0208117dd8e8ef4caa53c79e704f988, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 826293632}
-  m_LocalRotation: {x: -0.6561508, y: -0.5000827, z: -0.1315311, w: 0.54962075}
+  m_LocalRotation: {x: -0.6561509, y: -0.50008273, z: -0.13153112, w: 0.5496208}
   m_LocalPosition: {x: 0.0038600906, y: 0.020258421, z: 0.030833283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -24389,6 +24394,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 79d9c2bc5b8c7dd48888f354bef37f8a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79d9c2bc5b8c7dd48888f354bef37f8a, type: 3}
   m_IsPrefabParent: 0
@@ -24588,6 +24597,18 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!114 &896133159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 896133152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ac05f304c3682488731e0fda0e235d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dropSFX: {fileID: 8300000, guid: bab55864faeba5745b924314b09df75e, type: 3}
 --- !u!54 &896133165
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24615,18 +24636,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05791857, y: 0.1397836, z: 0.06917465}
   m_Center: {x: 0, y: 0.07000001, z: 0}
---- !u!114 &896133167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 896133152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0e4ae5a576528644bed7e4d55c853d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dropSFX: {fileID: 8300000, guid: bab55864faeba5745b924314b09df75e, type: 3}
 --- !u!1 &896679683
 GameObject:
   m_ObjectHideFlags: 0
@@ -29364,6 +29373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e8665d0d3151dc4d8eab52f74eb8d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_myName: 4
   _traumaVersion: {fileID: 263145324}
   proposalRound1Time: 12
   proposalRound2Time: 7
@@ -37479,6 +37489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab72b006bfe489c4d825188b78df171f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_myName: 0
   _traumaVersion: {fileID: 939103887}
   proposalRound1Time: 14
   proposalRound2Time: 5
@@ -46111,6 +46122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e8665d0d3151dc4d8eab52f74eb8d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_myName: 1
   _traumaVersion: {fileID: 1602872985}
   proposalRound1Time: 13
   proposalRound2Time: 7
@@ -49800,6 +49812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e8665d0d3151dc4d8eab52f74eb8d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_myName: 2
   _traumaVersion: {fileID: 545178708}
   proposalRound1Time: 11
   proposalRound2Time: 7
@@ -60493,7 +60506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2049519014
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,19 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource), typeof(Animator))]
 public class FOF_Character : MonoBehaviour
 {
+    public enum EName
+    {
+        Champion,
+        Red,
+        Bowtie,
+        Candy,
+        Curls,
+    }
+    [SerializeField]
+    private EName m_myName;
+    public EName MyName
+    { get { return m_myName; } }
+
     [SerializeField]
     protected GameObject _traumaVersion;
 

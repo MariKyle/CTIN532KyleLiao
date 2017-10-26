@@ -159,7 +159,12 @@ public class FOF_VotingManager : MonoBehaviour
             case 1:
                 Characters[m_currentCharacterID].SetVotingResult(accept);
                 if (accept)
+                {
                     Round2Characters.Add(Characters[m_currentCharacterID]);
+                    MetricManagerScript._metricsInstance.LogTime(
+                        "Vote for " + Characters[m_currentCharacterID].MyName +
+                        " in Round 1");
+                }
                 break;
 
             case 2:
@@ -168,6 +173,13 @@ public class FOF_VotingManager : MonoBehaviour
                     FOF_Character current = Round2Characters[m_currentCharacterID] as FOF_Character;
                     Debug.Assert(current != null);
                     current.SetVotingResult(accept);
+
+                    if (accept)
+                    {
+                        MetricManagerScript._metricsInstance.LogTime(
+                            "Vote for " + current.MyName +
+                            " in Round 2");
+                    }
                 }
                 break;
         }

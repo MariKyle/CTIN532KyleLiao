@@ -55,9 +55,16 @@ public class FOF_GlassesBehavior : FOF_PickupBehavior
         }
     }
 
+    public override void BePickedUP()
+    {
+        base.BePickedUP();
+        MetricManagerScript._metricsInstance.LogTime("The Glasses being picked up");
+    }
+
     public override void BeDropped()
     {
         base.BeDropped();
+        MetricManagerScript._metricsInstance.LogTime("The Glasses being put down");
 
         float dist = Vector3.Distance(transform.position, _cameraPlace.position);
         if (dist <= _minDistanceToWear)

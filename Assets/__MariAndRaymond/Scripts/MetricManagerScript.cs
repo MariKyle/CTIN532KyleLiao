@@ -54,6 +54,8 @@ public class MetricManagerScript : MonoBehaviour
         //		createText = 
         //			"Number of times something happened 1: " + sampleMetric1 + "\n" +
         //			"Number of times something happened 2: " + sampleMetric2;
+
+        createText = "[Feast of Fools Metric] Start Tracking\r\n";
     }
 
     public void LogTime(string WhatYouWantToCallIt)

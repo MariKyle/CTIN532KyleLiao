@@ -49,6 +49,7 @@ public class FOF_Champion : FOF_Character
     {
         yield return new WaitForSeconds(5.0f);
 
+        _animator.SetTrigger("Seat Talking");
         _audioSrc.Stop();
         _audioSrc.clip = tuto_WeWillStart;
         _audioSrc.Play();
@@ -65,6 +66,7 @@ public class FOF_Champion : FOF_Character
         _audioSrc.clip = tuto_LetsPractice;
         _audioSrc.Play();
         yield return new WaitForSeconds(Tuto_LetsPracticeLength);
+        _animator.SetTrigger("Seat Idle");
 
         FOF_GameManager.Instance.VotingManager.VotingTutorialWait();
     }
@@ -74,6 +76,7 @@ public class FOF_Champion : FOF_Character
     }
     private IEnumerator IntroduceVotingBCo()
     {
+        _animator.SetTrigger("Seat Talking");
         _audioSrc.Stop();
         _audioSrc.clip = tuto_GoodNow;
         _audioSrc.Play();
@@ -85,6 +88,7 @@ public class FOF_Champion : FOF_Character
         _audioSrc.clip = tuto_LetsBegin;
         _audioSrc.Play();
         yield return new WaitForSeconds(Tuto_LetsBeginLength);
+        _animator.SetTrigger("Seat Idle");
 
         FOF_GameManager.Instance.VotingManager.VotingTutorialEnd();
     }
@@ -95,6 +99,7 @@ public class FOF_Champion : FOF_Character
     }
     private IEnumerator ReLeadRound1Co(bool hasAnyVote)
     {
+        _animator.SetTrigger("Seat Talking");
         _audioSrc.Stop();
         if (hasAnyVote)
         {
@@ -108,6 +113,7 @@ public class FOF_Champion : FOF_Character
             _audioSrc.Play();
             yield return new WaitForSeconds(Round1_NoVoteLength);
         }
+        _animator.SetTrigger("Seat Idle");
 
         FOF_GameManager.Instance.VotingManager.ReStartRoundOne();
     }
@@ -118,6 +124,7 @@ public class FOF_Champion : FOF_Character
     }
     private IEnumerator LeadTheProposalRound2Co()
     {
+        _animator.SetTrigger("Seat Talking");
         _audioSrc.Stop();
         _audioSrc.clip = round1_ThatsTheEnd;
         _audioSrc.Play();
@@ -126,14 +133,17 @@ public class FOF_Champion : FOF_Character
         _audioSrc.clip = round2_NowWeBeginRound2;
         _audioSrc.Play();
         yield return new WaitForSeconds(Round2_NowWeBeginRound2Length);
+        _animator.SetTrigger("Seat Idle");
 
         FOF_GameManager.Instance.VotingManager.BeginRoundTwo();
     }
     public void EndTheConference()
     {
+        _animator.SetTrigger("Seat Talking");
         _audioSrc.Stop();
         _audioSrc.clip = end_ThatsTheEnd;
         _audioSrc.Play();
+        _animator.SetTrigger("Seat Idle");
     }
 
 }
