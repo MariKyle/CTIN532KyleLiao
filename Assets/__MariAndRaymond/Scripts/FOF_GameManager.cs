@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FOF_GameManager : MonoBehaviour
 {
     public enum ELevel
     {
+		menu,
         titleSequence,
         tableScene,
-        credit,
+        endingCredit,
     }
     [SerializeField]
     private ELevel m_currentLevel;
@@ -32,24 +34,52 @@ public class FOF_GameManager : MonoBehaviour
     [SerializeField]
     private FOF_VotingManager _votingManager;
     public FOF_VotingManager VotingManager
-    { get { return _votingManager; } }
+    { 
+		get
+		{
+			if (_votingManager == null) 
+			{
+				Debug.LogError ("[FOF_GameManager] No Voting Manager");
+			}
+			return _votingManager; 
+		} 
+	}
 
-	void Awake ()
+	void Awake()
     {
         Screen.SetResolution(1920, 1080, true);
         
-        if (CurrentLevel == ELevel.tableScene)
-            Debug.Assert(_votingManager != null);
+		m_currentLevel = (ELevel)SceneManager.GetActiveScene ().buildIndex;
+		switch (CurrentLevel) 
+		{
+		case ELevel.titleSequence:
+			break;
+
+		case ELevel.tableScene:
+			GameObject votingManagerObj = GameObject.Find ("Voting Manager");
+			Debug.Assert (votingManagerObj != null);
+			_votingManager = votingManagerObj.GetComponent<FOF_VotingManager> ();
+			Debug.Assert(_votingManager != null);
+			break;
+
+		case ELevel.endingCredit:
+			break;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update ()
-    {
+	{
 		if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
 
+	}
+
+	public void LoadEndingCreditsScene()
+	{
+		Application.LoadLevel ("FeastOfFools_EndingCredits");
 	}
     
 

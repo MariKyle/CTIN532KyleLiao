@@ -148,7 +148,7 @@ public class Timer : MonoBehaviour {
 		Open2.SetActive (true);
 
 		yield return new WaitForSeconds(14);
-		Application.LoadLevel ("FeastOfFools_Scene1_Table");
+		Application.LoadLevel ("FeastOfFools_TableScene");
 
 
 		}

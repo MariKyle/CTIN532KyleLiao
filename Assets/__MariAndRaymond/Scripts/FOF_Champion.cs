@@ -144,6 +144,13 @@ public class FOF_Champion : FOF_Character
         _audioSrc.clip = end_ThatsTheEnd;
         _audioSrc.Play();
         _animator.SetTrigger("Seat Idle");
+
+		StartCoroutine (EndTheConferenceCo ());
     }
+	private IEnumerator EndTheConferenceCo()
+	{
+		yield return new WaitForSeconds (15.0f);
+		FOF_GameManager.Instance.LoadEndingCreditsScene ();
+	}
 
 }
