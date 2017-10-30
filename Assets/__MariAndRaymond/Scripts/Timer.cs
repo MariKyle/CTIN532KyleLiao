@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour {
 
+	//menusub
+	public GameObject MenuSub;
+
 	//font
 	public GameObject title;
 	public GameObject title1;
@@ -64,7 +67,12 @@ public class Timer : MonoBehaviour {
 		}
 
 		private IEnumerator ActivationRoutine()
-		{        
+		{      
+		yield return new WaitForSeconds (1);
+		MenuSub.SetActive (true);
+		yield return new WaitForSeconds (10);
+		MenuSub.SetActive (false);
+
 		yield return new WaitForSeconds(2);
 		WineTink.SetActive(true);
 		Wine.SetActive (true);
