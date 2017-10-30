@@ -49,6 +49,7 @@ public class FOF_GameManager : MonoBehaviour
         {
             Application.Quit();
         }
+
 	}
     
 

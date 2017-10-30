@@ -1,0 +1,12 @@
+[Feast of Fools Metrics] Start Tracking: - Time: 10-26-2017 10:48:49 AM
+Vote for Champion in Round 1: - Time: 10-26-2017 10:50:10 AM
+The Glasses being picked up: - Time: 10-26-2017 10:50:40 AM
+Vote for Bowtie in Round 1: - Time: 10-26-2017 10:50:55 AM
+Vote for Curls in Round 1: - Time: 10-26-2017 10:51:16 AM
+Vote for Bowtie in Round 2: - Time: 10-26-2017 10:51:56 AM
+The Glasses being put down: - Time: 10-26-2017 10:52:03 AM
+The Glasses being picked up: - Time: 10-26-2017 10:52:22 AM
+The Wine Glass being picked up: - Time: 10-26-2017 10:52:42 AM
+The Wine Glass being put down: - Time: 10-26-2017 10:53:01 AM
+The Wine Glass being picked up: - Time: 10-26-2017 10:53:09 AM
+The Wine Glass being put down: - Time: 10-26-2017 10:53:38 AM
