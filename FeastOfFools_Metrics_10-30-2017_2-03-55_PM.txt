@@ -1,0 +1,15 @@
+[Feast of Fools Metrics] Start Tracking: - Time: 10-30-2017 2:02:11 PM
+The Wine Glass being picked up: - Time: 10-30-2017 2:02:14 PM
+The Wine Glass being put down: - Time: 10-30-2017 2:02:17 PM
+The Wine Glass being picked up: - Time: 10-30-2017 2:02:17 PM
+The Wine Glass being put down: - Time: 10-30-2017 2:02:29 PM
+The Glasses being picked up: - Time: 10-30-2017 2:02:29 PM
+The Glasses being put down: - Time: 10-30-2017 2:02:30 PM
+The Glasses being picked up: - Time: 10-30-2017 2:02:31 PM
+The Glasses being put down: - Time: 10-30-2017 2:02:32 PM
+The Glasses being picked up: - Time: 10-30-2017 2:02:33 PM
+The Glasses being put down: - Time: 10-30-2017 2:02:33 PM
+The Glasses being picked up: - Time: 10-30-2017 2:02:35 PM
+The Glasses being put down: - Time: 10-30-2017 2:02:35 PM
+The Wine Glass being picked up: - Time: 10-30-2017 2:02:36 PM
+The Wine Glass being put down: - Time: 10-30-2017 2:02:39 PM

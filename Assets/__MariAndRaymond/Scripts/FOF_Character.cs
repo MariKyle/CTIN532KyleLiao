@@ -33,6 +33,8 @@ public class FOF_Character : MonoBehaviour
     protected AudioClip _proposalAcceptedSFX;
     [SerializeField]
     protected AudioClip _proposalRejectedSFX;
+	[SerializeField]
+	protected AudioClip _proposalWaitingSFX;
 
     protected Animator _animator;
 
@@ -96,12 +98,17 @@ public class FOF_Character : MonoBehaviour
     public void ProposalEnd()
     {
         FOF_GameManager.Instance.VotingManager.ProposalEnd();
+		_audioSrc.Stop ();
+		_audioSrc.clip = _proposalWaitingSFX;
+		_audioSrc.loop = true;
+		_audioSrc.Play ();
     }
 
     // Called by PlayerVote in VotingManager
     public virtual void SetVotingResult(bool accepted)
     {
         _audioSrc.Stop();
+		_audioSrc.loop = false;
 
         if (accepted)
         {

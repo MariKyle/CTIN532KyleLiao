@@ -21,18 +21,23 @@ public class MetricManagerScript : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this);
+
+		string time = System.DateTime.UtcNow.ToString ();
+		string dateTime = System.DateTime.Now.ToString (); //Get the time to tack on to the file name
+		dateTime = dateTime.Replace ("/", "-");
+		createText += "[Feast of Fools Metrics] Start Tracking: " + "- Time: " + dateTime + "\r\n";
     }
 
-    private void OnEnable()
-    {
-		if (FOF_GameManager.Instance.CurrentLevel == FOF_GameManager.ELevel.tableScene) 
-		{
-			string time = System.DateTime.UtcNow.ToString ();
-			string dateTime = System.DateTime.Now.ToString (); //Get the time to tack on to the file name
-			dateTime = dateTime.Replace ("/", "-");
-			createText += "[Feast of Fools Metrics] Start Tracking: " + "- Time: " + dateTime + "\r\n";
-		}
-    }
+    //private void OnEnable()
+    //{
+	//	if (FOF_GameManager.Instance.CurrentLevel == FOF_GameManager.ELevel.tableScene) 
+	//	{
+	//		string time = System.DateTime.UtcNow.ToString ();
+	//		string dateTime = System.DateTime.Now.ToString (); //Get the time to tack on to the file name
+	//		dateTime = dateTime.Replace ("/", "-");
+	//		createText += "[Feast of Fools Metrics] Start Tracking: " + "- Time: " + dateTime + "\r\n";
+	//	}
+    //}
 
     private void Update()
     {

@@ -64,6 +64,7 @@ public class FOF_Champion : FOF_Character
         yield return new WaitForSeconds(Tuto_ForTheFirstLength);
         _audioSrc.Stop();
         _audioSrc.clip = tuto_LetsPractice;
+		_audioSrc.loop = true;
         _audioSrc.Play();
         yield return new WaitForSeconds(Tuto_LetsPracticeLength);
         _animator.SetTrigger("Seat Idle");
@@ -78,6 +79,7 @@ public class FOF_Champion : FOF_Character
     {
         _animator.SetTrigger("Seat Talking");
         _audioSrc.Stop();
+		_audioSrc.loop = false;
         _audioSrc.clip = tuto_GoodNow;
         _audioSrc.Play();
         yield return new WaitForSeconds(Tuto_GoodNowLength);
