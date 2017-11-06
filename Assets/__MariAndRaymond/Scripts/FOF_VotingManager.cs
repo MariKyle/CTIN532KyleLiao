@@ -47,20 +47,20 @@ public class FOF_VotingManager : MonoBehaviour
 
     protected void Update()
     {
-        //if (m_status == EStatus.votingTutorialB)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        Champion.IntroduceVotingB();
-        //    }
-        //}
-        //if (m_status == EStatus.voting)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        PlayerVote(true);
-        //    }
-        //}
+        if (m_status == EStatus.votingTutorialB)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Champion.IntroduceVotingB();
+            }
+        }
+        if (m_status == EStatus.voting)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                PlayerVote(true);
+            }
+        }
     }
 
 	public void HoldUpRightHand()

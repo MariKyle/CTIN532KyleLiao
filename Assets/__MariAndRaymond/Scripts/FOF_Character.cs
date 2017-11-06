@@ -114,11 +114,13 @@ public class FOF_Character : MonoBehaviour
         {
             _audioSrc.clip = _proposalAcceptedSFX;
             _traumaVersion.SetActive(false);
+            _animator.SetTrigger("Proposal Accepted");
         }
         else
         {
             _audioSrc.clip = _proposalRejectedSFX;
             _traumaVersion.SetActive(true);
+            _animator.SetTrigger("Proposal Rejected");
         }
 
         _audioSrc.Play();

@@ -91,7 +91,7 @@ Material:
     - _StencilComp: 8
     - _StencilOp: 2
     - _StencilReadMask: 255
-    - _StencilReferenceID: 3
+    - _StencilReferenceID: 2
     - _StencilWriteMask: 255
     - _Transparency: 0.2
     - _UVSec: 0
