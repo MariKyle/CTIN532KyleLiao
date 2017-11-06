@@ -139,6 +139,16 @@ public class FOF_VotingManager : MonoBehaviour
     private IEnumerator ProposalEndCo()
     {
         m_status = EStatus.voting;
+
+        // Other characters ramdonly vote
+        for (int i = 0; i < Characters.Length; ++i)
+        {
+            if (i != m_currentCharacterID)
+            {
+                Characters[i].Vote(Random.Range(0, 2) > 0);
+            }
+        }
+
         yield return new WaitForSeconds(_votingInterval);
         if (m_status == EStatus.voting)
         {

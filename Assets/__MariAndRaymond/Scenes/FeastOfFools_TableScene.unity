@@ -18661,6 +18661,8 @@ MonoBehaviour:
   _proposalAcceptedSFX: {fileID: 0}
   _proposalRejectedSFX: {fileID: 0}
   _proposalWaitingSFX: {fileID: 8300000, guid: 811ae8a92cc359b46a583a69f3364d4d, type: 3}
+  _proposalAgreeSFX: {fileID: 0}
+  _proposalDisagreeSFX: {fileID: 0}
 --- !u!1 &573529455
 GameObject:
   m_ObjectHideFlags: 0
@@ -36467,6 +36469,9 @@ MonoBehaviour:
   _proposalRejectedSFX: {fileID: 8300000, guid: 9f8cac7588ef5ee48b59c30848a8c182,
     type: 3}
   _proposalWaitingSFX: {fileID: 8300000, guid: 811ae8a92cc359b46a583a69f3364d4d, type: 3}
+  _proposalAgreeSFX: {fileID: 8300000, guid: e9f3f57587c5c7b44af0654c4598e55b, type: 3}
+  _proposalDisagreeSFX: {fileID: 8300000, guid: 014e34c88b0763d4a9e936c149e0dfb3,
+    type: 3}
 --- !u!1001 &1062563828
 Prefab:
   m_ObjectHideFlags: 0
@@ -48905,6 +48910,9 @@ MonoBehaviour:
   _proposalRejectedSFX: {fileID: 8300000, guid: 28b4904a46ef02940a109acacf38da99,
     type: 3}
   _proposalWaitingSFX: {fileID: 8300000, guid: 811ae8a92cc359b46a583a69f3364d4d, type: 3}
+  _proposalAgreeSFX: {fileID: 8300000, guid: 2363f4b57af4b2f42b10f7c523899b4c, type: 3}
+  _proposalDisagreeSFX: {fileID: 8300000, guid: b8fb8aec325527349bdc011743e22848,
+    type: 3}
   tuto_WeWillStart: {fileID: 8300000, guid: 9c2ebd1fcc447fd4888acc1afdb5d5cf, type: 3}
   Tuto_WeWillStartLength: 14
   tuto_ThereWill: {fileID: 8300000, guid: 5be4ad0ecd04d42469869945b80b4e51, type: 3}
@@ -59756,7 +59764,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1638843736}
   - component: {fileID: 1638843739}
-  - component: {fileID: 1638843738}
   - component: {fileID: 1638843737}
   m_Layer: 0
   m_Name: Bowtie_Manifestation_Wave
@@ -59868,28 +59875,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &1638843738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1638843735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e8665d0d3151dc4d8eab52f74eb8d67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_myName: 2
-  _traumaVersion: {fileID: 545178708}
-  proposalRound1Time: 11
-  proposalRound2Time: 7
-  _proposalRound1_SFX: {fileID: 8300000, guid: 518a9463d0b01e049ab6e0842ea7a462, type: 3}
-  _proposalRound2_SFX: {fileID: 8300000, guid: 9859ee3085d4c994caba6934d43ed8f3, type: 3}
-  _proposalAcceptedSFX: {fileID: 8300000, guid: 6a76877bbb8671c4eb5691b863aa602c,
-    type: 3}
-  _proposalRejectedSFX: {fileID: 8300000, guid: c4d012d837da6b44c833c47edb8f8a47,
-    type: 3}
-  _proposalWaitingSFX: {fileID: 8300000, guid: 811ae8a92cc359b46a583a69f3364d4d, type: 3}
 --- !u!95 &1638843739
 Animator:
   serializedVersion: 3
@@ -62208,6 +62193,9 @@ MonoBehaviour:
   _proposalRejectedSFX: {fileID: 8300000, guid: 58e2d7447c5601d4eb0a29cd88e18f95,
     type: 3}
   _proposalWaitingSFX: {fileID: 8300000, guid: 811ae8a92cc359b46a583a69f3364d4d, type: 3}
+  _proposalAgreeSFX: {fileID: 8300000, guid: 1d1bb6805f5aef14294eaecc80e151c7, type: 3}
+  _proposalDisagreeSFX: {fileID: 8300000, guid: 147afd44be9bc4c47be80b5b867e4ddd,
+    type: 3}
 --- !u!1 &1729535885
 GameObject:
   m_ObjectHideFlags: 0
@@ -66650,6 +66638,9 @@ MonoBehaviour:
   _proposalRejectedSFX: {fileID: 8300000, guid: c4d012d837da6b44c833c47edb8f8a47,
     type: 3}
   _proposalWaitingSFX: {fileID: 8300000, guid: 811ae8a92cc359b46a583a69f3364d4d, type: 3}
+  _proposalAgreeSFX: {fileID: 8300000, guid: 9cf9c6ccd6c9d884dac43452e3893d32, type: 3}
+  _proposalDisagreeSFX: {fileID: 8300000, guid: 0e177257a9513ba498f6c7025b04021e,
+    type: 3}
 --- !u!1001 &1859461199
 Prefab:
   m_ObjectHideFlags: 0
@@ -80679,7 +80670,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 79d9c2bc5b8c7dd48888f354bef37f8a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79d9c2bc5b8c7dd48888f354bef37f8a, type: 3}

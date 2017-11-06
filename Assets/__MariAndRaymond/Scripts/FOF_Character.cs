@@ -35,6 +35,10 @@ public class FOF_Character : MonoBehaviour
     protected AudioClip _proposalRejectedSFX;
 	[SerializeField]
 	protected AudioClip _proposalWaitingSFX;
+    [SerializeField]
+    protected AudioClip _proposalAgreeSFX;
+    [SerializeField]
+    protected AudioClip _proposalDisagreeSFX;
 
     protected Animator _animator;
 
@@ -102,6 +106,31 @@ public class FOF_Character : MonoBehaviour
 		_audioSrc.clip = _proposalWaitingSFX;
 		_audioSrc.loop = true;
 		_audioSrc.Play ();
+    }
+
+    public void Vote(bool agree)
+    {
+        StartCoroutine(VoteCo(agree));
+    }
+    protected IEnumerator VoteCo(bool agree)
+    {
+        float waitTime = Random.Range(0.1f, 1.5f);
+        yield return new WaitForSeconds(waitTime);
+
+        if (agree)
+        {
+            _animator.SetTrigger("Proposal Raise Hand");
+
+            _audioSrc.Stop();
+            _audioSrc.clip = _proposalAgreeSFX;
+            _audioSrc.Play();
+        }
+        else
+        {
+            _audioSrc.Stop();
+            _audioSrc.clip = _proposalDisagreeSFX;
+            _audioSrc.Play();
+        }
     }
 
     // Called by PlayerVote in VotingManager

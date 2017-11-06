@@ -4,13 +4,21 @@
 // Uses a normal map to distort the image behind, and
 // an additional texture to tint the color.
 
-Shader "effect/Distort" {
-	Properties{
+Shader "effect/Distort" 
+{
+	Properties
+	{
 		_BumpAmt("Distortion", range(0,512)) = 256
 		_MainTex("Main Texture (RGB)", 2D) = "white" {}
 		_TintCol("Tint Color", Color) = (1,1,1,1)
 		_BumpMap("Normalmap", 2D) = "bump" {}
 		_ScrollSpeed("Scroll Speed",float) = 0
+
+		_StencilReferenceID("Stencil ID Reference", Float) = 1
+		[Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp("Stencil Comparison", Float) = 3
+		[Enum(UnityEngine.Rendering.StencilOp)] _StencilOp("Stencil Operation", Float) = 0
+		_StencilWriteMask("Stencil Write Mask", Float) = 255
+		_StencilReadMask("Stencil Read Mask", Float) = 255
 	}
 
 	CGINCLUDE
@@ -51,24 +59,37 @@ Shader "effect/Distort" {
 	}
 		ENDCG
 
-		Category {
+	Category 
+	{
 
-			// We must be transparent, so other objects are drawn before this one.
-			Tags{ "Queue" = "Transparent-100" "RenderType" = "Opaque" }
+		// We must be transparent, so other objects are drawn before this one.
+		Tags{ "Queue" = "Transparent-100" "RenderType" = "StencilOpaque" }
 
 
-			SubShader{
+		SubShader
+		{
+
+			Stencil
+			{
+				Ref[_StencilReferenceID]
+				Comp[_StencilComp]	// equal
+				Pass[_StencilOp]	// keep
+				ReadMask[_StencilReadMask]
+				WriteMask[_StencilWriteMask]
+			}
 
 			// This pass grabs the screen behind the object into a texture.
 			// We can access the result in the next pass as _GrabTexture
-			GrabPass {
+			GrabPass 
+			{
 				Name "BASE"
 				Tags { "LightMode" = "Always" }
 			}
 
 			// Main pass: Take the texture grabbed above and use the bumpmap to perturb it
 			// on to the screen
-			Pass {
+			Pass 
+			{
 				Name "BASE"
 				Tags { "LightMode" = "Always" }
 
@@ -100,15 +121,17 @@ Shader "effect/Distort" {
 			}
 		}
 
-			// ------------------------------------------------------------------
-			// Fallback for older cards and Unity non-Pro
+		// ------------------------------------------------------------------
+		// Fallback for older cards and Unity non-Pro
 
-					SubShader{
-						Blend DstColor Zero
-						Pass {
-							Name "BASE"
-							SetTexture[_MainTex] {	combine texture }
-						}
+			SubShader
+			{
+				Blend DstColor Zero
+				Pass 
+				{
+					Name "BASE"
+					SetTexture[_MainTex] {	combine texture }
 				}
-	}
+			}
+		}
 }
