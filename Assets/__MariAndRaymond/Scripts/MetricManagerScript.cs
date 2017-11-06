@@ -5,7 +5,7 @@ using System.IO;
 
 public class MetricManagerScript : MonoBehaviour
 {
-    string createText = "";
+    static string createText = "";
     public static MetricManagerScript _metricsInstance = null;
 
     //public int sampleMetric1, sampleMetric2;

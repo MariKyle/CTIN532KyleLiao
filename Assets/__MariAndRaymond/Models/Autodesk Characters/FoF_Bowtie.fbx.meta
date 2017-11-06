@@ -206,7 +206,7 @@ ModelImporter:
     13700014: m_TeethDown
     13700016: m_TeethUp
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -216,10 +216,7 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
-      does not match position in animation file:\n\t'LeftUpLeg' : position error =
-      3.999153 mm\n\t'LeftLeg' : position error = 11.602157 mm\n\t'LeftFoot' : position
-      error = 12.407112 mm\n\t'LeftToeBase' : position error = 5.545468 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
