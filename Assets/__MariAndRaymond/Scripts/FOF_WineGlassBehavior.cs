@@ -14,6 +14,8 @@ public class FOF_WineGlassBehavior : FOF_PickupBehavior
 
 	private Animator _anim;
 
+	private bool _isInteracting;
+
 	protected virtual void Awake()
 	{
 		base.Awake ();
@@ -33,26 +35,36 @@ public class FOF_WineGlassBehavior : FOF_PickupBehavior
 		Debug.Assert (_anim != null);
 	}
 
+	protected override void Update()
+	{
+		base.Update ();
+		if (_isInteracting) {
+			MetricManagerScript._metricsInstance.WineAccumulatedInteractionTime += Time.deltaTime;
+		}
+	}
+
     public override void BePickedUP()
     {
         base.BePickedUP();
-        MetricManagerScript._metricsInstance.LogTime("The Wine Glass being picked up");
+        //MetricManagerScript._metricsInstance.LogTime("The Wine Glass being picked up");
 
 		lionsSFXAudioSource01.Play ();
 		lionsSFXAudioSource02.Play ();
 
 		//_anim.SetTrigger ("Perspective On");
+		_isInteracting = true;
     }
 
     public override void BeDropped()
     {
         base.BeDropped();
-        MetricManagerScript._metricsInstance.LogTime("The Wine Glass being put down");
+        //MetricManagerScript._metricsInstance.LogTime("The Wine Glass being put down");
 
 		lionsSFXAudioSource01.Stop ();
 		lionsSFXAudioSource02.Stop ();
 
 		//_anim.SetTrigger ("Perspective Off");
+		_isInteracting = false;
     }
 
 	protected override void OnCollisionEnter(Collision other)

@@ -123,12 +123,14 @@ public class FOF_Character : MonoBehaviour
 
             _audioSrc.Stop();
             _audioSrc.clip = _proposalAgreeSFX;
+			_audioSrc.loop = false;
             _audioSrc.Play();
         }
         else
         {
             _audioSrc.Stop();
             _audioSrc.clip = _proposalDisagreeSFX;
+			_audioSrc.loop = false;
             _audioSrc.Play();
         }
     }
@@ -150,6 +152,8 @@ public class FOF_Character : MonoBehaviour
             _audioSrc.clip = _proposalRejectedSFX;
             _traumaVersion.SetActive(true);
             _animator.SetTrigger("Proposal Rejected");
+
+
         }
 
         _audioSrc.Play();

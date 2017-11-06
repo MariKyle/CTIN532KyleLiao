@@ -5,10 +5,17 @@ using System.IO;
 
 public class MetricManagerScript : MonoBehaviour
 {
-    static string createText = "";
+    static string createText;
     public static MetricManagerScript _metricsInstance = null;
 
     //public int sampleMetric1, sampleMetric2;
+
+	static float _wineAccumulatedInteractionTime;
+	public float WineAccumulatedInteractionTime
+	{
+		set { _wineAccumulatedInteractionTime = value; }
+		get { return _wineAccumulatedInteractionTime; }
+	}
 
     void Awake()
     {
@@ -25,7 +32,7 @@ public class MetricManagerScript : MonoBehaviour
 		string time = System.DateTime.UtcNow.ToString ();
 		string dateTime = System.DateTime.Now.ToString (); //Get the time to tack on to the file name
 		dateTime = dateTime.Replace ("/", "-");
-		createText += "[Feast of Fools Metrics] Start Tracking: " + "- Time: " + dateTime + "\r\n";
+		createText += "[Feast of Fools Metrics] Start Tracking: " + "- Time: " + dateTime + "s" + "\r\n";
     }
 
     //private void OnEnable()
@@ -72,6 +79,8 @@ public class MetricManagerScript : MonoBehaviour
         //			"Number of times something happened 2: " + sampleMetric2;
 
         //createText += "[Feast of Fools Metrics] Start Tracking\r\n";
+		createText +=
+			"Accumulated Interacting Time with The Wine Glass: " + _wineAccumulatedInteractionTime + "\r\n";
     }
 
     public void LogTime(string WhatYouWantToCallIt)

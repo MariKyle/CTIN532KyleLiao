@@ -21,11 +21,16 @@ public class FOF_VotingManager : MonoBehaviour
     [SerializeField]
     private bool m_allRoundsEnd;
 
+	private bool votingTutorialStarted;
+	private bool wineGlassTutorialStarted;
+
     public enum EStatus
     {
         votingTutorialA,
         votingTutorialB,
         votingTutorialC,
+		wineTutorialA,
+		wineTutorialB,
         proposing,
         voting,
     }
@@ -67,7 +72,18 @@ public class FOF_VotingManager : MonoBehaviour
 	{
 		if (m_status == EStatus.votingTutorialB) 
 		{
-			Champion.IntroduceVotingB();
+			if (votingTutorialStarted == false) 
+			{
+				Champion.IntroduceVotingB ();
+				votingTutorialStarted = true;
+
+				for (int i = 0; i < Characters.Length; ++i)
+				{
+					if (Characters[i] != Champion)
+						Characters[i].Vote(Random.Range(0, 2) > 0);
+				}
+			}
+			
 		}
 		if (m_status == EStatus.voting)
 		{
@@ -143,10 +159,23 @@ public class FOF_VotingManager : MonoBehaviour
         // Other characters ramdonly vote
         for (int i = 0; i < Characters.Length; ++i)
         {
-            if (i != m_currentCharacterID)
-            {
-                Characters[i].Vote(Random.Range(0, 2) > 0);
-            }
+			switch (m_currentRound)
+			{
+			case 1:
+				if (i != m_currentCharacterID)
+				{
+					Characters[i].Vote(Random.Range(0, 2) > 0);
+				}
+				break;
+
+			case 2:
+				if (Characters [i] != Round2Characters [m_currentCharacterID] as FOF_Character) 
+				{
+					Characters[i].Vote(Random.Range(0, 2) > 0);
+				}
+				break;
+			}
+
         }
 
         yield return new WaitForSeconds(_votingInterval);
@@ -160,6 +189,8 @@ public class FOF_VotingManager : MonoBehaviour
     public void PlayerVote(bool accept)
     {
         m_status = EStatus.proposing;   // avoid repeated voting
+
+
         StartCoroutine(PlayerVoteCo(accept));
     }
     private IEnumerator PlayerVoteCo(bool accept)
