@@ -69,6 +69,13 @@ public class FOF_PickupBehavior : MonoBehaviour
         }
     }
 
+	protected virtual void OnTriggerEnter(Collider other)
+	{
+	}
+	protected virtual void OnTriggerExit(Collider other)
+	{
+	}
+
 	public virtual void BePickedUP()
 	{
 		State = EState.pickuped;
