@@ -12,6 +12,13 @@ public class Timer : MonoBehaviour {
 	public GameObject title1;
 	public GameObject title2;
 
+	//newspaper headlines
+	public GameObject New1;
+	public GameObject New2;
+	public GameObject New3;
+	public GameObject New4;
+
+
 	//audio
 	public GameObject WineTink;
 	public GameObject Laugh;
@@ -31,7 +38,6 @@ public class Timer : MonoBehaviour {
 
 	//objects
 	public GameObject Wine;
-	public GameObject Glasses;
 	public GameObject Silverware;
 	public GameObject ServingDishes;
 	public GameObject Table;
@@ -80,14 +86,13 @@ public class Timer : MonoBehaviour {
 
 		yield return new WaitForSeconds(1);
 		Laugh.SetActive(true);
-
-		yield return new WaitForSeconds(1);
-		Glasses.SetActive(true);
+		New1.SetActive (true);
 
 		yield return new WaitForSeconds(2);
 		Restaurant.SetActive (true);
 		turkey.SetActive(true);
 		Grape1.SetActive (true);
+		New2.SetActive (true);
 
 		yield return new WaitForSeconds(1);
 		Jazz.SetActive(true);
@@ -102,6 +107,7 @@ public class Timer : MonoBehaviour {
 		Grape3.SetActive (true);
 		turkey2.SetActive (true);
 		Open.SetActive (true);
+		New3.SetActive (true);
 
 
 		yield return new WaitForSeconds(1);
@@ -116,6 +122,7 @@ public class Timer : MonoBehaviour {
 		Plate4.SetActive (true);
 		Placemat4.SetActive (true);
 		Grape5.SetActive (true);
+		New4.SetActive (true);
 
 		yield return new WaitForSeconds(1);
 		Plate5.SetActive (true);
