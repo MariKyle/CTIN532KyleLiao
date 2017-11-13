@@ -5,9 +5,14 @@ using UnityEngine;
 public class FOF_WineGlassBehavior : FOF_PickupBehavior
 {
 	[SerializeField]
-	private AudioSource lionsSFXAudioSource01;
+	private ParticleSystem _traumaActivatedParticle;
 	[SerializeField]
-	private AudioSource lionsSFXAudioSource02;
+	private AudioClip _traumaActivatedSFX;
+
+	//[SerializeField]
+	//private AudioSource lionsSFXAudioSource01;
+	//[SerializeField]
+	//private AudioSource lionsSFXAudioSource02;
 
 	[SerializeField]
 	private Transform _originalPos;
@@ -16,18 +21,41 @@ public class FOF_WineGlassBehavior : FOF_PickupBehavior
 
 	private bool _isInteracting;
 
+	// called by gameManager
+	[SerializeField]
+	private Light _spotLight;
+	public void OnWineGlassTutorial()
+	{
+		_spotLight.enabled = true;
+		OnTraumaActivated ();
+	}
+
+	public void OnTraumaActivated()
+	{
+		_traumaActivatedParticle.Play ();
+		_audioSrc.clip = _traumaActivatedSFX;
+		_audioSrc.Play ();
+	}
+
 	protected virtual void Awake()
 	{
 		base.Awake ();
 
-		Debug.Assert (lionsSFXAudioSource01 != null);
-		lionsSFXAudioSource01.playOnAwake = false;
-		lionsSFXAudioSource01.loop = true;
-		lionsSFXAudioSource01.Stop ();
-		Debug.Assert (lionsSFXAudioSource02 != null);
-		lionsSFXAudioSource02.playOnAwake = false;
-		lionsSFXAudioSource02.loop = true;
-		lionsSFXAudioSource02.Stop ();
+		Debug.Assert (_traumaActivatedParticle != null);
+		_traumaActivatedParticle.Stop ();
+		Debug.Assert (_traumaActivatedSFX != null);
+
+		Debug.Assert (_spotLight != null);
+		_spotLight.enabled = false;
+
+		//Debug.Assert (lionsSFXAudioSource01 != null);
+		//lionsSFXAudioSource01.playOnAwake = false;
+		//lionsSFXAudioSource01.loop = true;
+		//lionsSFXAudioSource01.Stop ();
+		//Debug.Assert (lionsSFXAudioSource02 != null);
+		//lionsSFXAudioSource02.playOnAwake = false;
+		//lionsSFXAudioSource02.loop = true;
+		//lionsSFXAudioSource02.Stop ();
 
 		Debug.Assert (_originalPos != null);
 
@@ -48,8 +76,8 @@ public class FOF_WineGlassBehavior : FOF_PickupBehavior
         base.BePickedUP();
         //MetricManagerScript._metricsInstance.LogTime("The Wine Glass being picked up");
 
-		lionsSFXAudioSource01.Play ();
-		lionsSFXAudioSource02.Play ();
+		//lionsSFXAudioSource01.Play ();
+		//lionsSFXAudioSource02.Play ();
 
 		//_anim.SetTrigger ("Perspective On");
 		_isInteracting = true;
@@ -60,8 +88,8 @@ public class FOF_WineGlassBehavior : FOF_PickupBehavior
         base.BeDropped();
         //MetricManagerScript._metricsInstance.LogTime("The Wine Glass being put down");
 
-		lionsSFXAudioSource01.Stop ();
-		lionsSFXAudioSource02.Stop ();
+		//lionsSFXAudioSource01.Stop ();
+		//lionsSFXAudioSource02.Stop ();
 
 		//_anim.SetTrigger ("Perspective Off");
 		_isInteracting = false;
@@ -87,8 +115,25 @@ public class FOF_WineGlassBehavior : FOF_PickupBehavior
 		if (other.gameObject.name == "WineGlass Perspective Trigger") 
 		{
 			_anim.SetTrigger ("Perspective On");
+
+
+			if (FOF_GameManager.Instance.Status == FOF_GameManager.EStatus.wineTutorial)
+			{
+				FOF_GameManager.Instance.EndWineGlassTutorial ();
+			}
 		}
 	}
+
+	protected override void OnTriggerStay(Collider other)
+	{
+		base.OnTriggerStay (other);
+		if (other.gameObject.name == "WineGlass_Reset_Trigger")
+		{
+			transform.position = _originalPos.position;
+		}
+	}
+
+
 	protected override void OnTriggerExit(Collider other)
 	{
 		if (other.gameObject.name == "WineGlass Perspective Trigger") 

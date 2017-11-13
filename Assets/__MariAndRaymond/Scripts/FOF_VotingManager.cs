@@ -120,7 +120,8 @@ public class FOF_VotingManager : MonoBehaviour
         NextCharacterToPropose();
     }
 
-    protected void NextCharacterToPropose()
+	// can be called by GameManager after finishing the wine glass tutorial to continue
+	public void NextCharacterToPropose()
     {
         if (m_allRoundsEnd)
         {
@@ -128,6 +129,9 @@ public class FOF_VotingManager : MonoBehaviour
             return;
         }
         Debug.Log("Proposal Starts!");
+
+		if (FOF_GameManager.Instance.Status == FOF_GameManager.EStatus.wineTutorial)
+			return;
 
         switch (m_currentRound)
         {

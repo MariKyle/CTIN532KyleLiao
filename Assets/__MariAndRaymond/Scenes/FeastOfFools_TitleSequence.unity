@@ -3224,8 +3224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f01092276146c945b0cf27fbdbf66ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_currentLevel: 1
+  m_currentLevel: 0
   _votingManager: {fileID: 0}
+  _wineGlassTutorialSFX01: {fileID: 0}
+  _wineGlassTutorialSFX02: {fileID: 0}
 --- !u!1 &424119505
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,16 +60,24 @@ public class FOF_PickupBehavior : MonoBehaviour
 
     }
 
-    protected virtual void OnCollisionEnter(Collision other)
+	protected virtual void OnCollisionEnter(Collision other)
+	{
+		if (_dropSFX != null && !_audioSrc.isPlaying)
+		{
+			_audioSrc.clip = _dropSFX;
+			_audioSrc.Play();
+		}
+	}
+
+    protected virtual void OnCollisionStay(Collision other)
     {
-        if (_dropSFX != null && !_audioSrc.isPlaying)
-        {
-            _audioSrc.clip = _dropSFX;
-            _audioSrc.Play();
-        }
     }
 
 	protected virtual void OnTriggerEnter(Collider other)
+	{
+	}
+
+	protected virtual void OnTriggerStay(Collider other)
 	{
 	}
 	protected virtual void OnTriggerExit(Collider other)

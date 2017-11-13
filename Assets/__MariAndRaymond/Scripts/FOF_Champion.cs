@@ -66,7 +66,7 @@ public class FOF_Champion : FOF_Character
         _audioSrc.clip = tuto_LetsPractice;
 		_audioSrc.loop = true;
         _audioSrc.Play();
-        yield return new WaitForSeconds(Tuto_LetsPracticeLength);
+		yield return new WaitForSeconds(Tuto_LetsPracticeLength-1.0f);
         _animator.SetTrigger("Seat Idle");
 
         FOF_GameManager.Instance.VotingManager.VotingTutorialWait();

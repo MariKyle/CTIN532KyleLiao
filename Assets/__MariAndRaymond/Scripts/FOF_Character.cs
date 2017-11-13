@@ -153,7 +153,7 @@ public class FOF_Character : MonoBehaviour
             _traumaVersion.SetActive(true);
             _animator.SetTrigger("Proposal Rejected");
 
-
+			FOF_GameManager.Instance.OnTraumaActivated ();
         }
 
         _audioSrc.Play();

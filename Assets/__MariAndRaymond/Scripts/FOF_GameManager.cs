@@ -7,7 +7,6 @@ public class FOF_GameManager : MonoBehaviour
 {
     public enum ELevel
     {
-		menu,
         titleSequence,
         tableScene,
         endingCredit,
@@ -16,6 +15,15 @@ public class FOF_GameManager : MonoBehaviour
     private ELevel m_currentLevel;
     public ELevel CurrentLevel
     { get { return m_currentLevel; } }
+
+	public enum EStatus
+	{
+		normal,
+		wineTutorial,
+	}
+	private EStatus m_status;
+	public EStatus Status
+	{ get { return m_status; } }
 
     private static FOF_GameManager _instance;
     public static FOF_GameManager Instance
@@ -45,6 +53,14 @@ public class FOF_GameManager : MonoBehaviour
 		} 
 	}
 
+	private FOF_WineGlassBehavior _wineGlass;
+	private bool _wineGlassTutorialFinished;
+	private AudioSource _audioSrc;
+	[SerializeField]
+	private AudioClip _wineGlassTutorialSFX01;
+	[SerializeField]
+	private AudioClip _wineGlassTutorialSFX02;
+
 	void Awake()
     {
         Screen.SetResolution(1920, 1080, true);
@@ -59,7 +75,19 @@ public class FOF_GameManager : MonoBehaviour
 			GameObject votingManagerObj = GameObject.Find ("Voting Manager");
 			Debug.Assert (votingManagerObj != null);
 			_votingManager = votingManagerObj.GetComponent<FOF_VotingManager> ();
-			Debug.Assert(_votingManager != null);
+			Debug.Assert (_votingManager != null);
+			GameObject wineGlassObj = GameObject.FindWithTag ("Wine Glass");
+			Debug.Assert (wineGlassObj != null);
+			_wineGlass = wineGlassObj.GetComponent<FOF_WineGlassBehavior> ();
+			Debug.Assert (_wineGlass != null);
+
+			_audioSrc = GetComponent<AudioSource> ();
+			Debug.Assert (_audioSrc != null);
+			_audioSrc.playOnAwake = false;
+			_audioSrc.loop = false;
+			_audioSrc.Stop ();
+			Debug.Assert (_wineGlassTutorialSFX01 != null);
+			Debug.Assert (_wineGlassTutorialSFX02 != null);
 			break;
 
 		case ELevel.endingCredit:
@@ -81,6 +109,54 @@ public class FOF_GameManager : MonoBehaviour
 	{
 		Application.LoadLevel ("FeastOfFools_EndingCredits");
 	}
-    
+
+	public void OnTraumaActivated()
+	{
+		if (!_wineGlassTutorialFinished) 
+		{
+			StartWineGlassTutorial ();
+		}
+		else
+		{
+			_wineGlass.OnTraumaActivated ();
+		}
+	}
+
+	private void StartWineGlassTutorial()
+	{
+		m_status = EStatus.wineTutorial;
+		StartCoroutine (StartWineGlassTutorialCo ());
+
+	}
+
+	private IEnumerator StartWineGlassTutorialCo()
+	{
+		yield return new WaitForSeconds (3.0f);
+
+		_audioSrc.clip = _wineGlassTutorialSFX01;
+		_audioSrc.loop = true;
+		_audioSrc.Play ();
+
+		yield return new WaitForSeconds (9.0f);
+
+		_wineGlass.OnWineGlassTutorial ();
+
+	}
+
+	public void EndWineGlassTutorial()
+	{
+		StartCoroutine (EndWineGlassTutorialCo ());
+	}
+	private IEnumerator EndWineGlassTutorialCo()
+	{
+		_audioSrc.clip = _wineGlassTutorialSFX02;
+		_audioSrc.loop = false;
+		_audioSrc.Play ();
+
+		yield return new WaitForSeconds (4.0f);
+		m_status = EStatus.normal;
+		_wineGlassTutorialFinished = true;
+		_votingManager.NextCharacterToPropose ();
+	}
 
 }

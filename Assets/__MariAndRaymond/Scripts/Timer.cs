@@ -74,14 +74,14 @@ public class Timer : MonoBehaviour {
 
 		private IEnumerator ActivationRoutine()
 		{      
-		yield return new WaitForSeconds (1);
-		MenuSub.SetActive (true);
-		yield return new WaitForSeconds (10);
-		MenuSub.SetActive (false);
+		//yield return new WaitForSeconds (1);
+		//MenuSub.SetActive (true);
+		//yield return new WaitForSeconds (10);
+		//MenuSub.SetActive (false);
 
 		yield return new WaitForSeconds(2);
 		WineTink.SetActive(true);
-		Wine.SetActive (true);
+		//Wine.SetActive (true);
 		title.SetActive (true);
 
 		yield return new WaitForSeconds(1);
