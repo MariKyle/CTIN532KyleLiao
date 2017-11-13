@@ -63,7 +63,7 @@ Shader "Custom/Stencils/Effect/Transparency Distort"
 	{
 
 		// We must be transparent, so other objects are drawn before this one.
-		Tags{ "Queue" = "Transparent-100" "RenderType" = "StencilOpaque" }
+		Tags{ "Queue" = "Transparent+100" "RenderType" = "StencilOpaque" }
 
 
 		SubShader
