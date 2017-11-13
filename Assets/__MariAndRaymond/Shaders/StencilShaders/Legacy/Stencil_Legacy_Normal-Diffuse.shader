@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 
-Shader "Stencils/Legacy Shaders/Diffuse" 
+Shader "Custom/Stencils/Legacy Shaders/Diffuse" 
 {
 	Properties 
 	{

@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 
-Shader "Stencils/Legacy Shaders/Reflective/Bumped Specular" 
+Shader "Custom/Stencils/Legacy Shaders/Reflective/Bumped Specular" 
 {
 	Properties
 	{
