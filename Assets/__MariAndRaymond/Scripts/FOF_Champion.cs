@@ -90,8 +90,6 @@ public class FOF_Champion : FOF_Character
         StopCoroutine(IntroduceVotingACo());
         FOF_GameManager.Instance.VotingManager.VotingTutorialContinue();
 
-        Debug.LogError("Called IntroduceVotingB");
-
         StartCoroutine(IntroduceVotingBCo());
     }
     private IEnumerator IntroduceVotingBCo()

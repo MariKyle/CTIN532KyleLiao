@@ -53,8 +53,21 @@ public class FOF_GameManager : MonoBehaviour
 			return _votingManager; 
 		} 
 	}
+    [SerializeField]
+    private FoF_BGMManager _bgmManager;
+    public FoF_BGMManager BGMManager
+    {
+        get
+        {
+            if (_bgmManager == null)
+            {
+                Debug.LogError("[FOF_BGMManager] NO BGM Manager");
+            }
+            return _bgmManager;
+        }
+    }
 
-	private FOF_WineGlassBehavior _wineGlass;
+    private FOF_WineGlassBehavior _wineGlass;
 	private bool _wineGlassTutorialFinished;
 	private AudioSource _audioSrc;
 
@@ -82,6 +95,10 @@ public class FOF_GameManager : MonoBehaviour
 			Debug.Assert (votingManagerObj != null);
 			_votingManager = votingManagerObj.GetComponent<FOF_VotingManager> ();
 			Debug.Assert (_votingManager != null);
+            GameObject bgmManagerObj = GameObject.Find("BGM Manager");
+            Debug.Assert(bgmManagerObj != null);
+            _bgmManager = bgmManagerObj.GetComponent<FoF_BGMManager>();
+            Debug.Assert(_bgmManager != null);
 			GameObject wineGlassObj = GameObject.FindWithTag ("Wine Glass");
 			Debug.Assert (wineGlassObj != null);
 			_wineGlass = wineGlassObj.GetComponent<FOF_WineGlassBehavior> ();

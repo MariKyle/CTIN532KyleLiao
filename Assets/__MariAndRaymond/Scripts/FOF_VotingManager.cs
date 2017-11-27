@@ -91,6 +91,8 @@ public class FOF_VotingManager : MonoBehaviour
     public void VotingTutorialEnd()
     {
         NextCharacterToPropose();
+
+        FOF_GameManager.Instance.BGMManager.ChangeStatus(FoF_BGMManager.EStatus.round01);
     }
     public void ReStartRoundOne()
     {
@@ -104,6 +106,8 @@ public class FOF_VotingManager : MonoBehaviour
     {
         m_currentRound = 2;
         m_currentCharacterID = 0;
+
+        FOF_GameManager.Instance.BGMManager.ChangeStatus(FoF_BGMManager.EStatus.round02);
 
         NextCharacterToPropose();
     }
