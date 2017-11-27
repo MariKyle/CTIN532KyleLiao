@@ -41,8 +41,8 @@ public class FOF_Champion : FOF_Character
     public float Round2_NowWeBeginRound2Length;
 
     [SerializeField]
-    private AudioClip end_ThatsTheEnd;
-    public float End_ThatsTheEndsLength;
+    private AudioClip end_ThenItsSettled;
+	public float End_ThenItsSettledLength;
 
     public void IntroduceVotingA()
     {
@@ -159,15 +159,17 @@ public class FOF_Champion : FOF_Character
     {
         _animator.SetTrigger("Seat Talking");
         _audioSrc.Stop();
-        _audioSrc.clip = end_ThatsTheEnd;
+		_audioSrc.clip = end_ThenItsSettled;
         _audioSrc.Play();
-        _animator.SetTrigger("Seat Idle");
 
 		StartCoroutine (EndTheConferenceCo ());
     }
 	private IEnumerator EndTheConferenceCo()
 	{
-		yield return new WaitForSeconds (15.0f);
+		yield return new WaitForSeconds (End_ThenItsSettledLength);
+		_animator.SetTrigger("Seat Idle");
+
+		yield return new WaitForSeconds (20.0f - End_ThenItsSettledLength);
 		FOF_GameManager.Instance.LoadEndingCreditsScene ();
 	}
 

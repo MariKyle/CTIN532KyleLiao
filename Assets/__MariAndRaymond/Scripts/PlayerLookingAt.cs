@@ -3,6 +3,7 @@
 public class PlayerLookingAt : MonoBehaviour
 {
     [SerializeField] Transform _reticleTransform;
+	[SerializeField] private bool _showReticle;
     private bool ReticleFixedDistance;
 	private float _lastHitDistance;
     [SerializeField] float _reticleDistance = 4f;
@@ -22,12 +23,20 @@ public class PlayerLookingAt : MonoBehaviour
 
     void Awake ()
     {
-        _cameraTransform = Camera.main.transform;
+        //_cameraTransform = Camera.main.transform;
         ReticleFixedDistance = true;
     }
 
     void Update ()
     {
+		if (_cameraTransform == null && Camera.main != null)
+			_cameraTransform = Camera.main.transform;
+
+		if (_cameraTransform == null)
+			return;
+
+		_reticleTransform.gameObject.GetComponent<MeshRenderer> ().enabled = _showReticle;
+
         _rayDirection = _cameraTransform.forward;
         _rayStart = _cameraTransform.position;
         Debug.DrawRay(_rayStart, _rayDirection * _rayLength, Color.green);

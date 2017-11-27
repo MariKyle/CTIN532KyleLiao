@@ -90,12 +90,17 @@ public class FOF_Character : MonoBehaviour
         Debug.Assert(_amISceen != null);
         Debug.Assert(_traumaAudioSrc != null);
         _traumaAudioSrcMaxVolume = _traumaAudioSrc.volume;
-        _traumaStaringTarget = Camera.main.transform;
-        Debug.Assert(_traumaStaringTarget != null);
+		//_traumaStaringTarget = Camera.main.transform;
+        //Debug.Assert(_traumaStaringTarget != null);
     }
 
     protected void Update()
     {
+		if (_traumaStaringTarget == null && Camera.main != null) 
+		{
+			_traumaStaringTarget = Camera.main.transform;
+		}
+
         if (m_mentalState == EMentalState.trauma && !m_isProposing)
         {
             _traumaAudioSrc.volume = Mathf.Clamp( m_traumaSeenFraction * TraumaSeenSFXMultiplier, 
