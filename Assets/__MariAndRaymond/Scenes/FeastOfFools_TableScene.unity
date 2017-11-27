@@ -3298,7 +3298,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 201379482}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.35
   m_Height: 1.6
   m_Direction: 1
@@ -3309,7 +3309,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 201379482}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fca57235a49f2994295cc8ab18bd18b1, type: 3}
   m_Name: 
@@ -4310,7 +4310,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 235661608}
-  m_Layer: 0
+  - component: {fileID: 235661610}
+  - component: {fileID: 235661609}
+  m_Layer: 10
   m_Name: master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4331,6 +4333,34 @@ Transform:
   m_Father: {fileID: 1728733686}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &235661609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 235661607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca57235a49f2994295cc8ab18bd18b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadingToSeenDurationSeconds: 1
+  _fadingToUnseenDurationSeconds: 1
+  _state: 3
+  _seenFraction: 0
+--- !u!136 &235661610
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 235661607}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1.2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &238483750
 GameObject:
   m_ObjectHideFlags: 0
@@ -5019,7 +5049,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 288296403}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.3
   m_Height: 1.8
   m_Direction: 1
@@ -5030,7 +5060,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 288296403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fca57235a49f2994295cc8ab18bd18b1, type: 3}
   m_Name: 
@@ -5127,7 +5157,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 288823200}
-  m_Layer: 0
+  - component: {fileID: 288823202}
+  - component: {fileID: 288823201}
+  m_Layer: 10
   m_Name: master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5148,6 +5180,34 @@ Transform:
   m_Father: {fileID: 791587543}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &288823201
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288823199}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.65, z: 0}
+--- !u!114 &288823202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288823199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca57235a49f2994295cc8ab18bd18b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadingToSeenDurationSeconds: 1
+  _fadingToUnseenDurationSeconds: 1
+  _state: 3
+  _seenFraction: 0
 --- !u!1 &289316999
 GameObject:
   m_ObjectHideFlags: 0
@@ -5709,7 +5769,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 308918211}
-  m_Layer: 0
+  - component: {fileID: 308918213}
+  - component: {fileID: 308918212}
+  m_Layer: 10
   m_Name: master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5730,6 +5792,34 @@ Transform:
   m_Father: {fileID: 1859127401}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &308918212
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 308918210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.65, z: 0}
+--- !u!114 &308918213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 308918210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca57235a49f2994295cc8ab18bd18b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadingToSeenDurationSeconds: 1
+  _fadingToUnseenDurationSeconds: 1
+  _state: 3
+  _seenFraction: 0
 --- !u!1 &310393785
 GameObject:
   m_ObjectHideFlags: 0
@@ -21016,7 +21106,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 916459125}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.6
   m_Height: 1.8
   m_Direction: 1
@@ -21027,7 +21117,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916459125}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fca57235a49f2994295cc8ab18bd18b1, type: 3}
   m_Name: 
@@ -24221,7 +24311,7 @@ MonoBehaviour:
   TraumaSeenSFXMultiplier: 1
   TraumaSeenStaringMultiplier: 2
   traumaSeenDelay: 1
-  _amISceen: {fileID: 201379487}
+  _amISceen: {fileID: 288823202}
   _traumaAudioSrc: {fileID: 201379485}
   _traumaStaringTarget: {fileID: 0}
 --- !u!1001 &1062563828
@@ -25865,7 +25955,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1145001630}
-  m_Layer: 0
+  - component: {fileID: 1145001632}
+  - component: {fileID: 1145001631}
+  m_Layer: 10
   m_Name: master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25886,6 +25978,34 @@ Transform:
   m_Father: {fileID: 1389831682}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1145001631
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1145001629}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1.6
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &1145001632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1145001629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca57235a49f2994295cc8ab18bd18b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadingToSeenDurationSeconds: 1
+  _fadingToUnseenDurationSeconds: 1
+  _state: 3
+  _seenFraction: 0
 --- !u!1001 &1145081235
 Prefab:
   m_ObjectHideFlags: 0
@@ -31357,7 +31477,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1280607178}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fca57235a49f2994295cc8ab18bd18b1, type: 3}
   m_Name: 
@@ -31374,7 +31494,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1280607178}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.35
   m_Height: 1.6
   m_Direction: 1
@@ -32756,7 +32876,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1357158120}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33595,7 +33715,7 @@ MonoBehaviour:
   TraumaSeenSFXMultiplier: 1
   TraumaSeenStaringMultiplier: 2
   traumaSeenDelay: 1
-  _amISceen: {fileID: 916459128}
+  _amISceen: {fileID: 1145001632}
   _traumaAudioSrc: {fileID: 916459129}
   _traumaStaringTarget: {fileID: 0}
   tuto_WeWillStart: {fileID: 8300000, guid: 9c2ebd1fcc447fd4888acc1afdb5d5cf, type: 3}
@@ -44304,7 +44424,7 @@ MonoBehaviour:
   TraumaSeenSFXMultiplier: 1
   TraumaSeenStaringMultiplier: 2
   traumaSeenDelay: 1
-  _amISceen: {fileID: 1280607180}
+  _amISceen: {fileID: 235661609}
   _traumaAudioSrc: {fileID: 1280607182}
   _traumaStaringTarget: {fileID: 0}
 --- !u!1 &1730295123
@@ -47852,7 +47972,7 @@ MonoBehaviour:
   TraumaSeenSFXMultiplier: 1
   TraumaSeenStaringMultiplier: 2
   traumaSeenDelay: 1
-  _amISceen: {fileID: 288296406}
+  _amISceen: {fileID: 308918213}
   _traumaAudioSrc: {fileID: 288296407}
   _traumaStaringTarget: {fileID: 0}
 --- !u!1001 &1859461199
@@ -58680,7 +58800,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2098625117}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -19,7 +19,8 @@ public class FOF_GameManager : MonoBehaviour
 	public enum EStatus
 	{
 		normal,
-		wineTutorial,
+		wineTutorialA,
+        wineTutorialB,
 	}
 	private EStatus m_status;
 	public EStatus Status
@@ -129,7 +130,7 @@ public class FOF_GameManager : MonoBehaviour
 
 	private void StartWineGlassTutorial()
 	{
-		m_status = EStatus.wineTutorial;
+		m_status = EStatus.wineTutorialA;
 		StartCoroutine (StartWineGlassTutorialCo ());
 
 	}
@@ -143,30 +144,37 @@ public class FOF_GameManager : MonoBehaviour
 
 		yield return new WaitForSeconds (wineGlassTutorialSFX01Initial_Length);
 
-        _audioSrc.Stop();
-        _audioSrc.clip = _wineGlassTutorialSFX01;
-        _audioSrc.loop = true;
-        _audioSrc.Play();
+        m_status = EStatus.wineTutorialB;
 
-        _wineGlass.OnWineGlassTutorial ();
+        if (!_wineGlassTutorialFinished)
+        {
+            _audioSrc.Stop();
+            _audioSrc.clip = _wineGlassTutorialSFX01;
+            _audioSrc.loop = true;
+            _audioSrc.Play();
+
+            _wineGlass.OnWineGlassTutorial();
+        }
 
 	}
 
 	public void EndWineGlassTutorial()
 	{
+        StopCoroutine(StartWineGlassTutorialCo());
 		StartCoroutine (EndWineGlassTutorialCo ());
 	}
 	private IEnumerator EndWineGlassTutorialCo()
 	{
-		_audioSrc.clip = _wineGlassTutorialSFX02;
+        _wineGlassTutorialFinished = true;
+        m_status = EStatus.normal;
+
+        _audioSrc.clip = _wineGlassTutorialSFX02;
 		_audioSrc.loop = false;
 		_audioSrc.Play ();
 
 		yield return new WaitForSeconds (4.0f);
 
         _audioSrc.Stop();
-        m_status = EStatus.normal;
-		_wineGlassTutorialFinished = true;
 		_votingManager.NextCharacterToPropose ();
 	}
 

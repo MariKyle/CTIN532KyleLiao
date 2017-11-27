@@ -39,6 +39,7 @@ public class FOF_Character : MonoBehaviour
     protected AudioClip _proposalAgreeSFX;
     [SerializeField]
     protected AudioClip _proposalDisagreeSFX;
+    private bool m_isProposing;
 
     protected Animator _animator;
 
@@ -95,7 +96,7 @@ public class FOF_Character : MonoBehaviour
 
     protected void Update()
     {
-        if (m_mentalState == EMentalState.trauma)
+        if (m_mentalState == EMentalState.trauma && !m_isProposing)
         {
             _traumaAudioSrc.volume = Mathf.Clamp( m_traumaSeenFraction * TraumaSeenSFXMultiplier, 
                 0.0f, _traumaAudioSrcMaxVolume);
@@ -132,6 +133,8 @@ public class FOF_Character : MonoBehaviour
     public virtual void StandUpForProposal()
     {
         _animator.SetTrigger("Stand Up");
+
+        m_isProposing = true;
     }
 
     // Called at the beginning of the animation StandArguing
@@ -182,6 +185,8 @@ public class FOF_Character : MonoBehaviour
 		_audioSrc.clip = _proposalWaitingSFX;
 		_audioSrc.loop = true;
 		_audioSrc.Play ();
+
+        m_isProposing = false;
     }
 
     public void Vote(bool agree)
@@ -242,7 +247,8 @@ public class FOF_Character : MonoBehaviour
     private void OnAnimatorIK(int layerIndex)
     {
         _animator.SetLookAtPosition(_traumaStaringTarget.position);
-        float lookAtWeight = (m_mentalState == EMentalState.trauma) ? Mathf.Clamp01( m_traumaSeenFraction * TraumaSeenStaringMultiplier) : 0.0f;
+        float lookAtWeight = (m_mentalState == EMentalState.trauma && !m_isProposing) ?
+            Mathf.Clamp01( m_traumaSeenFraction * TraumaSeenStaringMultiplier) : 0.0f;
         _animator.SetLookAtWeight(lookAtWeight, 0.1f, 1.0f, 1.0f, 0.5f);
     }
 

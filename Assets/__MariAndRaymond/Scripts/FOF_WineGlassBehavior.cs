@@ -82,7 +82,7 @@ public class FOF_WineGlassBehavior : FOF_PickupBehavior
             GetComponent<Rigidbody>().useGravity = false;
             _wearing = true;
 
-            if (FOF_GameManager.Instance.Status == FOF_GameManager.EStatus.wineTutorial)
+            if (FOF_GameManager.Instance.Status == FOF_GameManager.EStatus.wineTutorialB)
             {
                 FOF_GameManager.Instance.EndWineGlassTutorial();
             }
@@ -147,7 +147,7 @@ public class FOF_WineGlassBehavior : FOF_PickupBehavior
 			_anim.SetTrigger ("Perspective On");
 
 
-			if (FOF_GameManager.Instance.Status == FOF_GameManager.EStatus.wineTutorial)
+			if (FOF_GameManager.Instance.Status == FOF_GameManager.EStatus.wineTutorialB)
 			{
 				FOF_GameManager.Instance.EndWineGlassTutorial ();
 			}

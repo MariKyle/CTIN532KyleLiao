@@ -75,26 +75,34 @@ public class FOF_Champion : FOF_Character
         _animator.SetTrigger("Seat Idle");
 
         yield return new WaitForSeconds(interval);
-        _audioSrc.Stop();
-        _audioSrc.clip = tuto_LetsPractice;
-        _audioSrc.loop = true;
-        _audioSrc.Play();
-        
+
+        // ** Gold Master ** BUG
+        if (FOF_GameManager.Instance.VotingManager.Status == FOF_VotingManager.EStatus.votingTutorialB)
+        {
+            _audioSrc.Stop();
+            _audioSrc.clip = tuto_LetsPractice;
+            _audioSrc.loop = true;
+            _audioSrc.Play();
+        }
     }
     public void IntroduceVotingB()
     {
+        StopCoroutine(IntroduceVotingACo());
+        FOF_GameManager.Instance.VotingManager.VotingTutorialContinue();
+
+        Debug.LogError("Called IntroduceVotingB");
+
         StartCoroutine(IntroduceVotingBCo());
     }
     private IEnumerator IntroduceVotingBCo()
     {
         _animator.SetTrigger("Seat Talking");
         _audioSrc.Stop();
-		_audioSrc.loop = false;
         _audioSrc.clip = tuto_GoodNow;
+        _audioSrc.loop = false;
         _audioSrc.Play();
-        yield return new WaitForSeconds(Tuto_GoodNowLength);
 
-        FOF_GameManager.Instance.VotingManager.VotingTutorialContinue();
+        yield return new WaitForSeconds(Tuto_GoodNowLength);
 
         _audioSrc.Stop();
         _audioSrc.clip = tuto_LetsBegin;

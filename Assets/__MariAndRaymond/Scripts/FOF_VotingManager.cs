@@ -35,6 +35,7 @@ public class FOF_VotingManager : MonoBehaviour
         voting,
     }
     private EStatus m_status;
+    public EStatus Status { get { return m_status; } }
 
     [SerializeField]
     private float _votingInterval = 5.0f;
@@ -52,20 +53,7 @@ public class FOF_VotingManager : MonoBehaviour
 
     protected void Update()
     {
-        if (m_status == EStatus.votingTutorialB)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Champion.IntroduceVotingB();
-            }
-        }
-        if (m_status == EStatus.voting)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                PlayerVote(true);
-            }
-        }
+
     }
 
 	public void HoldUpRightHand()
@@ -130,7 +118,7 @@ public class FOF_VotingManager : MonoBehaviour
         }
         Debug.Log("Proposal Starts!");
 
-		if (FOF_GameManager.Instance.Status == FOF_GameManager.EStatus.wineTutorial)
+		if (FOF_GameManager.Instance.Status != FOF_GameManager.EStatus.normal)
 			return;
 
         switch (m_currentRound)
