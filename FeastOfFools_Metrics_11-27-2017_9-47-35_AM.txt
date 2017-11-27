@@ -1,7 +1,0 @@
-[Feast of Fools Metrics] Start Tracking: - Time: 11-27-2017 9:42:03 AMs
-[Feast of Fools Metrics] Start Tracking: - Time: 11-27-2017 9:42:57 AMs
-Vote for Red in Round 1: - Time: 11-27-2017 9:45:12 AM
-Vote for Champion in Round 2: - Time: 11-27-2017 9:46:18 AM
-Vote for Red in Round 2: - Time: 11-27-2017 9:46:33 AM
-[Feast of Fools Metrics] Start Tracking: - Time: 11-27-2017 9:47:12 AMs
-Accumulated Interacting Time with The Wine Glass: 0
