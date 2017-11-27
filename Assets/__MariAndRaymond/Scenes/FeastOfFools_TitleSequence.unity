@@ -18124,6 +18124,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1638416223}
   m_Mesh: {fileID: 4300000, guid: 7f42fc471b9c86e44886085f2b738087, type: 3}
+--- !u!1001 &1662274222
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4030958456610522, guid: 9cb6ab17ff693aa4dba4ae693fe4f470, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.813
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030958456610522, guid: 9cb6ab17ff693aa4dba4ae693fe4f470, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.247
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030958456610522, guid: 9cb6ab17ff693aa4dba4ae693fe4f470, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.529
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030958456610522, guid: 9cb6ab17ff693aa4dba4ae693fe4f470, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030958456610522, guid: 9cb6ab17ff693aa4dba4ae693fe4f470, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030958456610522, guid: 9cb6ab17ff693aa4dba4ae693fe4f470, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030958456610522, guid: 9cb6ab17ff693aa4dba4ae693fe4f470, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030958456610522, guid: 9cb6ab17ff693aa4dba4ae693fe4f470, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9cb6ab17ff693aa4dba4ae693fe4f470, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1674865299 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 0dfd3cb78fdb1f744b099709d20884df, type: 3}
@@ -18925,7 +18967,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a09ef5ad99051b64a9ab3aae4516fc7b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 941356ab89c45334996b2d3ff1ee3eec, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.37
   m_Pitch: 1
@@ -18983,7 +19025,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

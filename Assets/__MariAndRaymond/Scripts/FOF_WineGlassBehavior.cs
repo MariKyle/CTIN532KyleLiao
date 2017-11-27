@@ -16,6 +16,10 @@ public class FOF_WineGlassBehavior : FOF_PickupBehavior
 
 	[SerializeField]
 	private Transform _originalPos;
+    // *TEMPERARY USE
+    [SerializeField]
+    private Transform _wearPos;
+    private bool _wearing;
 
 	private Animator _anim;
 
@@ -69,6 +73,32 @@ public class FOF_WineGlassBehavior : FOF_PickupBehavior
 		if (_isInteracting) {
 			MetricManagerScript._metricsInstance.WineAccumulatedInteractionTime += Time.deltaTime;
 		}
+
+        // *TEMPERARY USE
+        if (Input.GetKeyDown(KeyCode.W) && _wearPos != null)
+        {
+            transform.position = _wearPos.position;
+            //transform.rotation = _wearPos.rotation;
+            GetComponent<Rigidbody>().useGravity = false;
+            _wearing = true;
+
+            if (FOF_GameManager.Instance.Status == FOF_GameManager.EStatus.wineTutorial)
+            {
+                FOF_GameManager.Instance.EndWineGlassTutorial();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.E) && _wearPos != null)
+        {
+            transform.position = _originalPos.position;
+            //transform.rotation = _originalPos.rotation;
+            GetComponent<Rigidbody>().useGravity = true;
+            _wearing = false;
+        }
+
+        if (_wearing)
+        {
+            transform.position = _wearPos.position;
+        }
 	}
 
     public override void BePickedUP()

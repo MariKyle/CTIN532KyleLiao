@@ -56,8 +56,13 @@ public class FOF_GameManager : MonoBehaviour
 	private FOF_WineGlassBehavior _wineGlass;
 	private bool _wineGlassTutorialFinished;
 	private AudioSource _audioSrc;
-	[SerializeField]
+
+    [SerializeField]
+    private AudioClip _wineGlassTutorialSFX01Initial;
+    public float wineGlassTutorialSFX01Initial_Length;
+    [SerializeField]
 	private AudioClip _wineGlassTutorialSFX01;
+
 	[SerializeField]
 	private AudioClip _wineGlassTutorialSFX02;
 
@@ -133,13 +138,17 @@ public class FOF_GameManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds (3.0f);
 
-		_audioSrc.clip = _wineGlassTutorialSFX01;
-		_audioSrc.loop = true;
+		_audioSrc.clip = _wineGlassTutorialSFX01Initial;
 		_audioSrc.Play ();
 
-		yield return new WaitForSeconds (9.0f);
+		yield return new WaitForSeconds (wineGlassTutorialSFX01Initial_Length);
 
-		_wineGlass.OnWineGlassTutorial ();
+        _audioSrc.Stop();
+        _audioSrc.clip = _wineGlassTutorialSFX01;
+        _audioSrc.loop = true;
+        _audioSrc.Play();
+
+        _wineGlass.OnWineGlassTutorial ();
 
 	}
 
@@ -154,7 +163,9 @@ public class FOF_GameManager : MonoBehaviour
 		_audioSrc.Play ();
 
 		yield return new WaitForSeconds (4.0f);
-		m_status = EStatus.normal;
+
+        _audioSrc.Stop();
+        m_status = EStatus.normal;
 		_wineGlassTutorialFinished = true;
 		_votingManager.NextCharacterToPropose ();
 	}

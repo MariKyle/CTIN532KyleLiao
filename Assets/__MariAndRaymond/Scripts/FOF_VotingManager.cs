@@ -165,19 +165,27 @@ public class FOF_VotingManager : MonoBehaviour
         {
 			switch (m_currentRound)
 			{
-			case 1:
-				if (i != m_currentCharacterID)
-				{
-					Characters[i].Vote(Random.Range(0, 2) > 0);
-				}
-				break;
+			    case 1:
+				    if (i != m_currentCharacterID)
+				    {
+                        bool otherVote = Random.Range(0, 2) > 0;
 
-			case 2:
-				if (Characters [i] != Round2Characters [m_currentCharacterID] as FOF_Character) 
-				{
-					Characters[i].Vote(Random.Range(0, 2) > 0);
-				}
-				break;
+                        // ** [GoldMaster]
+                        if (otherVote && !Round2Characters.Contains(Characters[m_currentCharacterID]))
+                            Round2Characters.Add(Characters[m_currentCharacterID]);
+
+                        Characters[i].Vote(otherVote);
+				    }
+				    break;
+
+			    case 2:
+				    if (Characters [i] != Round2Characters [m_currentCharacterID] as FOF_Character) 
+				    {
+                        bool otherVote = Random.Range(0, 2) > 0;
+
+                        Characters[i].Vote(otherVote);
+				    }
+				    break;
 			}
 
         }
@@ -205,7 +213,12 @@ public class FOF_VotingManager : MonoBehaviour
                 Characters[m_currentCharacterID].SetVotingResult(accept);
                 if (accept)
                 {
-                    Round2Characters.Add(Characters[m_currentCharacterID]);
+                    // ** [GoldMaster]
+                    if (!Round2Characters.Contains(Characters[m_currentCharacterID]))
+                    {
+                        Round2Characters.Add(Characters[m_currentCharacterID]);
+                    }
+                        
                     MetricManagerScript._metricsInstance.LogTime(
                         "Vote for " + Characters[m_currentCharacterID].MyName +
                         " in Round 1");
@@ -239,15 +252,18 @@ public class FOF_VotingManager : MonoBehaviour
                 {
                     //m_currentRound = 2;
                     //m_currentCharacterID = 0;
-                    if (Round2Characters.Count < 2)
-                    {
-                        Champion.ReLeadRound1(Round2Characters.Count > 0);
-                    }
-                    else
-                    {
-                        Champion.LeadTheProposalRound2();
-                    }
 
+                    // ** [GoldMaster] Players don't want the repeating round! **
+                    //if (Round2Characters.Count < 2)
+                    //{
+                    //    Champion.ReLeadRound1(Round2Characters.Count > 0);
+                    //}
+                    //else
+                    //{
+                    //    Champion.LeadTheProposalRound2();
+                    //}
+
+                    Champion.LeadTheProposalRound2();
                 }
                 else
                 {

@@ -94,8 +94,10 @@ public class Timer : MonoBehaviour {
 		Grape1.SetActive (true);
 		New2.SetActive (true);
 
-		yield return new WaitForSeconds(1);
-		Jazz.SetActive(true);
+        Jazz.SetActive(true);
+
+        yield return new WaitForSeconds(1);
+		
 		Plate1.SetActive (true);
 		Placemat1.SetActive (true);
 		Grape2.SetActive (true);
@@ -154,7 +156,7 @@ public class Timer : MonoBehaviour {
 		yield return new WaitForSeconds(2);
 		Open2.SetActive (true);
 
-		yield return new WaitForSeconds(14);
+		yield return new WaitForSeconds(20);
 		Application.LoadLevel ("FeastOfFools_TableScene");
 
 

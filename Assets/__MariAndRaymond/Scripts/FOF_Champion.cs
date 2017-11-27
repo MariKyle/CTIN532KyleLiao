@@ -11,8 +11,11 @@ public class FOF_Champion : FOF_Character
     private AudioClip tuto_ThereWill;
     public float Tuto_ThereWillLength;
     [SerializeField]
-    private AudioClip tuto_ForTheFirst;
-    public float Tuto_ForTheFirstLength;
+    private AudioClip tuto_AfterTheInitialRound;
+    public float Tuto_AfterTheInitialRoundLength;
+    [SerializeField]
+    private AudioClip tuto_LetsPracticeInitial;
+    public float tuto_LetsPracticeInitialLength;
     [SerializeField]
     private AudioClip tuto_LetsPractice;
     public float Tuto_LetsPracticeLength;
@@ -59,17 +62,24 @@ public class FOF_Champion : FOF_Character
         _audioSrc.Play();
         yield return new WaitForSeconds(Tuto_ThereWillLength);
         _audioSrc.Stop();
-        _audioSrc.clip = tuto_ForTheFirst;
+        _audioSrc.clip = tuto_AfterTheInitialRound;
         _audioSrc.Play();
-        yield return new WaitForSeconds(Tuto_ForTheFirstLength);
+        yield return new WaitForSeconds(Tuto_AfterTheInitialRoundLength);
         _audioSrc.Stop();
-        _audioSrc.clip = tuto_LetsPractice;
-		_audioSrc.loop = true;
+        _audioSrc.clip = tuto_LetsPracticeInitial;
         _audioSrc.Play();
-		yield return new WaitForSeconds(Tuto_LetsPracticeLength-1.0f);
-        _animator.SetTrigger("Seat Idle");
+        float interval = Tuto_LetsPracticeLength - tuto_LetsPracticeInitialLength;
+        yield return new WaitForSeconds(tuto_LetsPracticeInitialLength);
 
         FOF_GameManager.Instance.VotingManager.VotingTutorialWait();
+        _animator.SetTrigger("Seat Idle");
+
+        yield return new WaitForSeconds(interval);
+        _audioSrc.Stop();
+        _audioSrc.clip = tuto_LetsPractice;
+        _audioSrc.loop = true;
+        _audioSrc.Play();
+        
     }
     public void IntroduceVotingB()
     {
